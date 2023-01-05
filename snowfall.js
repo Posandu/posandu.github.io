@@ -1,3 +1,5 @@
+/*
+
 const random = (min) => (max) => Math.random() * (max - min) + min;
 
 const setProperties = (properties) => (element) => {
@@ -21,3 +23,5 @@ const setProperties = (properties) => (element) => {
 		)
 	)
 );
+
+*/
