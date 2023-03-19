@@ -5,3 +5,7 @@
 html, body {
    scrollbar-gutter: stable;
 }
+
+:root, html, body {
+   scroll-behavior: smooth;
+}

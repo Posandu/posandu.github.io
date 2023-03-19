@@ -7,8 +7,8 @@
 	$: activePage = $page.url.pathname;
 </script>
 
-<div class="md:flex flex-col sticky top-20">
-	{#each [{ name: "Home", link: "/" }, { name: "About", link: "/about" }, { name: "Tools", link: "/tools" }, { name: "Projects", link: "/projects" }, { name: "Experience", link: "/exp" }] as item}
+<div class="md:flex flex-col sticky top-1">
+	{#each [{ name: "Home", link: "/" }, { name: "About", link: "/about" }, { name: "Tools", link: "/tools" }, { name: "Projects", link: "/projects" }, { name: "Experience", link: "/exp" }, { name: "Guestbook", link: "/guestbook" }] as item}
 		<a
 			class="px-3 btn btn-sm py-1 btn-ghost lowercase text-left rounded justify-start"
 			href={item.link}
