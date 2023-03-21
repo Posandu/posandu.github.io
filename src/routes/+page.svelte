@@ -45,6 +45,12 @@
 			link: "https://github.com/yashash-pugalia",
 			who: "Co worker",
 		},
+		{
+			text: "Posandu is one of the best developers I have met and he has very impressive and creative skills. I wish him all the best",
+			name: "Logo BlastSL",
+			link: "https://www.linkedin.com/in/logo-blastsl/",
+			who: "Graphic Designer",
+		},
 	];
 
 	let activeQuote = 0;
