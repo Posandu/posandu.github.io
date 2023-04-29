@@ -34,15 +34,14 @@
 <h1 class="text-2xl mb-4">About</h1>
 
 <p>
-	Greetings, dear reader! Allow me to introduce myself - I am Posandu Mapa, a
-	passionate full-stack developer hailing from the beautiful country of <i
+	Hey! I'm Posandu Mapa, I'm from <i
 		class="text-yellow-500">Sri Lanka</i
-	>. At the ripe age of <span style="max-width: 110px;min-width: 110px;display: inline-block;">{age}</span> years old, I have already established myself as an
+	>. I'm currently <span style="max-width: 102px;min-width: 102px;display: inline-block;">{age}</span> years old, I have already established myself as an
 	accomplished programmer with a love for all things coding.
 </p>
 
 <p>
-	My journey in the world of programming began when I was just 11 years old,
+	My journey in the world of programming began when I was 11 years old,
 	when I first delved into the intricate realms of HTML and CSS. However, what
 	makes my story truly unique is the fact that I did not have access to an
 	internet connection at the time - a true testament to the power of
@@ -81,12 +80,6 @@
 	always seeking out new places to discover and experience. And, of course, like
 	any true Marvel fan, I am a huge fan of the Avengers and all their heroic
 	exploits!
-</p>
-
-<p>
-	Thank you for taking the time to read my story 😊 - I hope it has brought some
-	inspiration and motivation to your day. Until next time, happy coding and stay
-	curious!
 </p>
 
 <style>

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { initializeApp } from "firebase/app";
 	import { onMount } from "svelte";
 	import { getDatabase, ref, onValue, set } from "firebase/database";
 	import {
@@ -7,6 +8,17 @@
 		getAuth,
 		onAuthStateChanged,
 	} from "firebase/auth";
+
+	const firebaseConfig = {
+		apiKey: "AIzaSyB6H1a1HfQCkDeOC1kcEo4pKwKIjWNpGno",
+		authDomain: "portfolio-2ae6c.firebaseapp.com",
+		projectId: "portfolio-2ae6c",
+		storageBucket: "portfolio-2ae6c.appspot.com",
+		messagingSenderId: "585390300572",
+		appId: "1:585390300572:web:24d367d3a6937a4c003c59",
+	};
+
+	initializeApp(firebaseConfig);
 
 	let signs: {
 		name: string;
@@ -77,42 +89,42 @@
 		Sign in w/ Google
 	</button>
 {:else if !sent}
-	<div class="p-4 card  bg-base-200 my-4 max-w-lg">
-        <p>
-            You're signed in as {name} 😎
-        </p>
-    
-        <form
-            on:submit|preventDefault={() => {
-                const dbRef = ref(database, "guestbook");
-    
-                set(dbRef, {
-                    ...signs,
-                    [Date.now()]: {
-                        name,
-                        message,
-                        img,
-                    },
-                });
-    
-                sent = true;
-            }}
-        >
-            <div class="form-control">
-                <label class="label">
-                    <span class="label-text">Message</span>
-                </label>
-                <textarea
-                    class="textarea h-24 textarea-bordered"
-                    placeholder="Leave a message"
-                    bind:value={message}
-                />
-            </div>
-            <div class="form-control mt-2">
-                <button class="btn btn-primary">Submit</button>
-            </div>
-        </form>
-    </div>
+	<div class="p-4 card bg-base-200 my-4 max-w-lg">
+		<p>
+			You're signed in as {name} 😎
+		</p>
+
+		<form
+			on:submit|preventDefault={() => {
+				const dbRef = ref(database, "guestbook");
+
+				set(dbRef, {
+					...signs,
+					[Date.now()]: {
+						name,
+						message,
+						img,
+					},
+				});
+
+				sent = true;
+			}}
+		>
+			<div class="form-control">
+				<label class="label">
+					<span class="label-text">Message</span>
+				</label>
+				<textarea
+					class="textarea h-24 textarea-bordered"
+					placeholder="Leave a message"
+					bind:value={message}
+				/>
+			</div>
+			<div class="form-control mt-2">
+				<button class="btn btn-primary">Submit</button>
+			</div>
+		</form>
+	</div>
 {/if}
 
 {#each signs as sign}

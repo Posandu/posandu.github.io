@@ -14,7 +14,7 @@
 		},
 		{
 			name: "Tronic247",
-			description: "My personal website.",
+			description: "Tech news, tutorials, and more.",
 			roles: ["Creator"],
 			link: "https://tronic247.com/",
 		},
@@ -53,21 +53,20 @@
 
 <div class="grid md:grid-cols-3 gap-3 sm:grid-cols-2">
 	{#each projects as project}
-		<div
-			class="col-span-1 bg-base-200 p-6 rounded hover:bg-base-300 transition-all"
+		<a
+			class="col-span-1 block bg-[#070710] p-6 rounded hover:bg-base-300 transition-all"
+			href={project.link}
 		>
 			<h1 class="text-xl">{project.name}</h1>
 			<p class="my-2">{project.description}</p>
 
 			{#each project.roles as role}
-				<button class="btn btn-xs btn-outline"> {role} </button>
+				<span class="text-sm mt-2 rounded bg-gray-900 p-1">
+					{role}
+				</span>
 			{/each}
 
 			<br />
-
-			<a href={project.link} target="_blank" class="link mt-2 block text-sm"
-				>{project.link}
-			</a>
-		</div>
+		</a>
 	{/each}
 </div>

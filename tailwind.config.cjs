@@ -31,8 +31,15 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require("daisyui")],
+	plugins: [require("daisyui"), require("tailwindcss-animate")],
 	daisyui: {
-		themes: ["night"],
+		themes: [
+			{
+				primary: {
+					...require("daisyui/src/colors/themes")["[data-theme=night]"],
+					background: "rgb(0, 0, 0)",
+				},
+			},
+		],
 	},
 };

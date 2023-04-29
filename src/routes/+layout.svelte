@@ -4,18 +4,6 @@
 	import PageTransition from "./PageTransition.svelte";
 	import type { LayoutServerData } from "./$types";
 	import { navigating } from "$app/stores";
-	import { initializeApp } from "firebase/app";
-
-	const firebaseConfig = {
-		apiKey: "AIzaSyB6H1a1HfQCkDeOC1kcEo4pKwKIjWNpGno",
-		authDomain: "portfolio-2ae6c.firebaseapp.com",
-		projectId: "portfolio-2ae6c",
-		storageBucket: "portfolio-2ae6c.appspot.com",
-		messagingSenderId: "585390300572",
-		appId: "1:585390300572:web:24d367d3a6937a4c003c59",
-	};
-
-	initializeApp(firebaseConfig);
 
 	export let data: LayoutServerData;
 
@@ -44,4 +32,6 @@
 			</PageTransition>
 		</div>
 	</main>
+
+	<img src="/imgs/1.jpg" class="fixed top-0 left-0 -z-10 opacity-5 blur-lg" alt="Posandu Mapa" />
 </div>
