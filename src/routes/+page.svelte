@@ -57,7 +57,7 @@
 		{
 			name: "Instagram",
 			icon: "akar-icons:instagram-fill",
-			link: "https://www.instagram.com/p0sandu/",
+			link: "https://www.instagram.com/posandu___/",
 			color: darken("#E1306C", 10),
 			gradientEndColor: "#E1306C",
 		},
