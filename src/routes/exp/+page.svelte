@@ -3,11 +3,6 @@
 
 	const details = [
 		{
-			year: "2023 - FEB",
-			icon: "clarity:employee-solid",
-			details: "Started working as a frontend Developer at Lorestate AI",
-		},
-		{
 			year: "2022 - OCT",
 			icon: "material-symbols:event-available-outline-rounded",
 			details:
