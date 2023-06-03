@@ -4,6 +4,7 @@
 	import PageTransition from "./PageTransition.svelte";
 	import type { LayoutServerData } from "./$types";
 	import { navigating } from "$app/stores";
+  import Footer from "./Footer.svelte";
 
 	export let data: LayoutServerData;
 
@@ -19,19 +20,19 @@
 </script>
 
 <div class="md:p-16 p-10 md:pt-16 pt-10 flex max-w-6xl m-auto">
-	<div class="mr-10 hidden md:block">
+	<div class="mr-10 justify-center items-center hidden md:block">
 		<Sidebar />
 	</div>
 
 	<main class="flex-1">
 		<div class="md:hidden mb-6"><Sidebar /></div>
 
-		<div class:opacity-60={loadingPage}>
+		<div class:opacity-60={loadingPage} >
 			<PageTransition pathname={data.pathname}>
 				<slot />
 			</PageTransition>
 		</div>
-	</main>
 
-	<img src="/imgs/1.jpg" class="fixed top-0 left-0 -z-10 opacity-5 blur-lg" alt="Posandu Mapa" />
+		<Footer />
+	</main>
 </div>

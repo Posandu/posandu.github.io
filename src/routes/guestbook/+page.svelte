@@ -24,6 +24,7 @@
 		name: string;
 		message: string;
 		img: string;
+		opened?: boolean;
 	}[] = [];
 
 	const database = getDatabase();
@@ -75,7 +76,7 @@
 
 <h1 class="text-2xl mb-4">Guestbook</h1>
 
-<p>Leave a message for me!</p>
+<p class="my-2">Leave a message for me!</p>
 
 {#if !signedIn}
 	<button
@@ -86,10 +87,10 @@
 			signInWithPopup(auth, provider);
 		}}
 	>
-		Sign in w/ Google
+		Sign in with Google
 	</button>
 {:else if !sent}
-	<div class="p-4 card bg-base-200 my-4 max-w-lg">
+	<div class="p-4 card bg-gray-900 my-4 max-w-lg">
 		<p>
 			You're signed in as {name} 😎
 		</p>
@@ -111,6 +112,7 @@
 			}}
 		>
 			<div class="form-control">
+				<!-- svelte-ignore a11y-label-has-associated-control -->
 				<label class="label">
 					<span class="label-text">Message</span>
 				</label>
@@ -127,18 +129,56 @@
 	</div>
 {/if}
 
+{#if !signs.length}
+	<div class="my-8 p-2">
+		<span class="loading loading-spinner loading-lg" />
+	</div>
+{/if}
+
 {#each signs as sign}
-	<div class="chat chat-start my-2">
+	<div class="chat mt-4 chat-start my-2">
 		<div class="chat-image avatar">
 			<div class="w-10 rounded-full">
 				<img src={sign.img} alt="avatar" />
 			</div>
 		</div>
+
 		<div class="chat-header">
-			{sign.name}
+			{sign.name} 
 		</div>
-		<div class="chat-bubble">
-			{sign.message}
+
+		<div class="chat-bubble max-w-[60vw] overflow-auto">
+			{#if sign.message.length > 200}
+				{#if !sign.opened}
+					<div>
+						{sign.message.substring(0, 200)}...
+					</div>
+
+					<button
+						class="btn btn-sm btn-primary"
+						on:click={() => {
+							sign.opened = true;
+						}}
+					>
+						Show more
+					</button>
+				{:else}
+					<div>
+						{sign.message}
+					</div>
+
+					<button
+						class="btn btn-sm btn-primary"
+						on:click={() => {
+							sign.opened = false;
+						}}
+					>
+						Show less
+					</button>
+				{/if}
+			{:else}
+				{sign.message}
+			{/if}
 		</div>
 	</div>
 {/each}

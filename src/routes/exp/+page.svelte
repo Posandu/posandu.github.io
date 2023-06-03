@@ -3,6 +3,11 @@
 
 	const details = [
 		{
+			year: "2023 - FEB",
+			icon: "ic:round-work",
+			details: "Employed as a fullstack developer in an AI startup."
+		},
+		{
 			year: "2022 - OCT",
 			icon: "material-symbols:event-available-outline-rounded",
 			details:

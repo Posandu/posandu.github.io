@@ -9,7 +9,7 @@
 		{
 			name: "Win11React",
 			description: "Windows 11 recreation in React.",
-			roles: ["Contributor"],
+			roles: ["Team Member"],
 			link: "https://win11.blueedge.me/",
 		},
 		{
@@ -39,7 +39,7 @@
 		{
 			name: "Win11 Svelte",
 			description: "Windows 11 recreation in Svelte.",
-			roles: ["Contributor"],
+			roles: ["Team Member"],
 			link: "https://win11-svelte.vercel.app/",
 		},
 	];

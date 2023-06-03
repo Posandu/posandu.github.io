@@ -36,7 +36,7 @@ module.exports = {
 		themes: [
 			{
 				primary: {
-					...require("daisyui/src/colors/themes")["[data-theme=night]"],
+					...require("daisyui/src/theming/themes")["[data-theme=night]"],
 					background: "rgb(0, 0, 0)",
 				},
 			},

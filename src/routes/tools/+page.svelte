@@ -20,6 +20,12 @@
 </div>
 
 <div class="flex bg-[#070710] mt-4 rounded p-4">
+	<div class="mr-2">Text Editor:</div>
+
+	<div class="flex-1 text-white">VS Code</div>
+</div>
+
+<div class="flex bg-[#070710] mt-4 rounded p-4">
 	<div class="mr-2">OS:</div>
 
 	<div class="flex-1 text-white">Windows 11, Ubuntu</div>
