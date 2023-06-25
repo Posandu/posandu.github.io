@@ -160,17 +160,24 @@
 			developer. They are also interested in LLM and enjoy creating IoT devices
 			with NodeMCUs and Arduinos. In their free time, they play badminton, read
 			books, solve puzzles, and are a Marvel fan.
+		{:else if summarizeStep === 4}
+			Posandu Mapa, a {age.toFixed()}-year-old self-taught coder from Sri Lanka.
+			Started coding at 11, launched Tronic247 in 2020. Skills: HTML, CSS,
+			JavaScript, React, Svelte. Full-stack developer. Creates IoT devices,
+			plays badminton, reads, solves puzzles, Marvel fan.
+		{:else if summarizeStep === 5}
+			Posandu Mapa, {age.toFixed()}-year-old self-taught coder from Sri Lanka.
+			HTML, CSS, JavaScript, React, Svelte skills. Full-stack developer. Creates
+			IoT devices, plays badminton, reads, puzzles, Marvel fan.
+		{:else if summarizeStep === 6}
+			Posandu Mapa, {age.toFixed()}-year-old coder. Full-stack developer.
+			Creates IoT, plays badminton, reads, puzzles, Marvel fan.
+		{:else if summarizeStep === 7}
+			Posandu Mapa, {age.toFixed()}-year-old coder. Full-stack developer.
 		{:else}
-			I'm sorry to hear that you're having trouble reading. I can certainly help
-			you. If you're looking to improve your English reading skills, I recommend
-			visiting the website <a
-				href="https://www.wikihow.com/Learn-English"
-				class="text-blue-200 hover:underline"
-				>https://www.wikihow.com/Learn-English</a
-			>. It's a helpful resource that provides various articles and guides to
-			assist you in learning how to read and improve your English proficiency.
-			Give it a try, and feel free to reach out if you have any specific
-			questions or need further assistance.
+			<div class="rounded border border-red-600 bg-red-900/40 text-red-200 px-4 py-2">
+				Sorry, something went wrong. Please try again later.
+			</div>
 		{/if}
 	</p>
 {/if}
