@@ -57,10 +57,8 @@
 	<title>Posandu Mapa - My Experience</title>
 </svelte:head>
 
-<h1 class="text-2xl mb-4">Experience</h1>
-
 {#each details as detail}
-	<div class="flex items-center border rounded p-4 border-gray-900 mb-4">
+	<div class="flex items-center border rounded p-4 border-base-200 mb-4">
 		<Icon icon={detail.icon} class="text-2xl mr-1" />
 
 		<div class="ml-4">

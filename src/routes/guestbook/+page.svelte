@@ -8,6 +8,7 @@
 		getAuth,
 		onAuthStateChanged,
 	} from "firebase/auth";
+	import { slide } from "svelte/transition";
 
 	const firebaseConfig = {
 		apiKey: "AIzaSyB6H1a1HfQCkDeOC1kcEo4pKwKIjWNpGno",
@@ -74,8 +75,6 @@
 	<title>Posandu Mapa - Guestbook</title>
 </svelte:head>
 
-<h1 class="text-2xl mb-4">Guestbook</h1>
-
 <p class="my-2">Leave a message for me!</p>
 
 {#if !signedIn}
@@ -90,7 +89,7 @@
 		Sign in with Google
 	</button>
 {:else if !sent}
-	<div class="p-4 card bg-gray-900 my-4 max-w-lg">
+	<div class="p-4 card bg-base-200 my-4 max-w-lg">
 		<p>
 			You're signed in as {name} 😎
 		</p>
@@ -123,7 +122,7 @@
 				/>
 			</div>
 			<div class="form-control mt-2">
-				<button class="btn btn-primary">Submit</button>
+				<button class="btn btn-primary"> Send </button>
 			</div>
 		</form>
 	</div>
@@ -144,13 +143,13 @@
 		</div>
 
 		<div class="chat-header">
-			{sign.name} 
+			{sign.name}
 		</div>
 
 		<div class="chat-bubble max-w-[60vw] overflow-auto">
 			{#if sign.message.length > 200}
 				{#if !sign.opened}
-					<div>
+					<div transition:slide class="overflow-hidden">
 						{sign.message.substring(0, 200)}...
 					</div>
 
@@ -159,11 +158,12 @@
 						on:click={() => {
 							sign.opened = true;
 						}}
+						transition:slide
 					>
 						Show more
 					</button>
 				{:else}
-					<div>
+					<div transition:slide>
 						{sign.message}
 					</div>
 
@@ -172,6 +172,7 @@
 						on:click={() => {
 							sign.opened = false;
 						}}
+						transition:slide
 					>
 						Show less
 					</button>

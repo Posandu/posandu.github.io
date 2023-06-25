@@ -1,88 +1,7 @@
 <script lang="ts">
 	import Icon from "@iconify/svelte";
 	import { onDestroy } from "svelte";
-	import { fly } from "svelte/transition";
-	import SpotifyStatus from "./SpotifyStatus.svelte";
-
-	const socialArr = [
-		{
-			name: "GitHub",
-			icon: "uiw:github",
-			link: "https://github.com/posandu",
-			color: darken("#333", 10),
-			gradientEndColor: "#333",
-		},
-		{
-			name: "Twitter",
-			icon: "akar-icons:twitter-fill",
-			link: "https://twitter.com/posandu",
-			color: darken("#1DA1F2", 10),
-			gradientEndColor: "#1DA1F2",
-		},
-		{
-			name: "DEV",
-			icon: "material-symbols:logo-dev",
-			link: "https://dev.to/posandu",
-			color: darken("#0A0A0A", 10),
-			gradientEndColor: "#0A0A0A",
-		},
-		{
-			name: "LinkedIn",
-			icon: "akar-icons:linkedin-fill",
-			link: "https://www.linkedin.com/in/posandu/",
-			color: darken("#0077B5", 10),
-			gradientEndColor: "#0077B5",
-		},
-		{
-			name: "Stack Overflow",
-			icon: "ri:stack-overflow-fill",
-			link: "https://stackoverflow.com/users/16474083/posandu",
-			color: darken("#F48024", 10),
-			gradientEndColor: "#F48024",
-		},
-		{
-			name: "CodePen",
-			icon: "ri:codepen-line",
-			link: "https://codepen.io/posandu",
-			color: darken("#0E7DC0", 10),
-			gradientEndColor: "#0E7DC0",
-		},
-		{
-			name: "YouTube",
-			icon: "ri:youtube-fill",
-			link: "https://www.youtube.com/@posandu",
-			color: darken("#FF0000", 10),
-			gradientEndColor: "#FF0000",
-		},
-		{
-			name: "Instagram",
-			icon: "akar-icons:instagram-fill",
-			link: "https://www.instagram.com/posanduu/",
-			color: darken("#E1306C", 10),
-			gradientEndColor: "#E1306C",
-		},
-		{
-			name: "Discord",
-			icon: "akar-icons:discord-fill",
-			link: "https://tronic247.com/pastebox.html#O=CISwzgxg9gTgJgLgAQAUpgIYDs4FcDEALAAwlA",
-			color: darken("#7289DA", 10),
-			gradientEndColor: "#7289DA",
-		},
-	];
-
-	function darken(color: string, amount: number) {
-		amount = amount * 65;
-		return color
-			.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, (m, r, g, b) => {
-				return (
-					"#" +
-					((1 << 8) | (parseInt(r, 16) - amount)).toString(16).slice(1) +
-					((1 << 8) | (parseInt(g, 16) - amount)).toString(16).slice(1) +
-					((1 << 8) | (parseInt(b, 16) - amount)).toString(16).slice(1)
-				);
-			})
-			.toUpperCase();
-	}
+	import { slide } from "svelte/transition";
 
 	const quotes = [
 		{
@@ -105,39 +24,37 @@
 		activeQuote = activeQuote === quotes.length - 1 ? 0 : activeQuote + 1;
 	}, quotes[activeQuote].text.length * 50 + 1000);
 
+	const birthDate = new Date("2008-04-20");
+
+	function calculateAge(birthdate: Date) {
+		const birthTime = new Date(birthdate).getTime();
+		const nowTime = Date.now();
+		const diffTime = nowTime - birthTime;
+		const ageInMilliseconds = Math.abs(diffTime);
+		const ageInYears = ageInMilliseconds / (1000 * 60 * 60 * 24 * 365);
+		const ageWithDecimals = parseFloat(ageInYears.toFixed(7));
+		return ageWithDecimals;
+	}
+
+	let age = calculateAge(birthDate);
+
+	let ageInterval = setInterval(() => {
+		age = calculateAge(birthDate);
+	}, 10);
+
 	onDestroy(() => {
 		clearInterval(interval);
+		clearInterval(ageInterval);
 	});
+
+	let summarizeStep = 0;
 </script>
 
 <svelte:head>
 	<title>Posandu Mapa - Student by day, developer by night.</title>
 </svelte:head>
 
-<div class="flex">
-	<div class="flex-1 text-center">
-		<div class="avatar animate-in zoom-in-75">
-			<div class="w-36 mask mask-squircle">
-				<img
-					src="https://avatars.githubusercontent.com/u/76736580?v=4"
-					alt="avatar"
-				/>
-			</div>
-		</div>
-
-		<h1 class="text-4xl mt-4 font-semibold delay-400 fade-in-20 animate-in">
-			Posandu Mapa
-		</h1>
-
-		<p class="mt-2 mb-6">Student by day, <code>developer</code> by night.</p>
-	</div>
-
-	<div class="relative">
-		<SpotifyStatus />
-	</div>
-</div>
-
-<div class="max-h-max max-w-xl mt-6 m-auto overflow-hidden">
+<div class="max-h-max m-auto overflow-hidden">
 	{#each quotes as quote, i}
 		{#if i == activeQuote}
 			<div
@@ -169,18 +86,109 @@
 	</div>
 </div>
 
-<div class="text-center mt-6">
-	{#each socialArr as social}
-		<a
-			href={social.link}
-			target="_blank"
-			class="btn mx-1 bg-transparent border-none btn-circle text-white transition-all -outline-offset-4 hover:outline-offset-1"
-			style="
-				outline: 1px solid {social.gradientEndColor}
-			"
-			title={social.name}
-		>
-			<Icon icon={social.icon} class="inline text-2xl" />
-		</a>
-	{/each}
+<h2 class="text-lg mb-2">👋 Hey!</h2>
+
+<p>
+	I'm Posandu Mapa from Sri Lanka. I'm currently <span
+		style="width: 85px;display:inline-block"
+	>
+		{age}</span
+	> years old. I enjoy coding, playing badminton, and reading books. 🧑‍💻
+</p>
+
+<p>
+	My programming journey started at the age of 11 when I learned some HTML and
+	CSS. What was fun is that I learned everything without internet access,
+	relying on self-motivation and determination! The joy I felt when my first
+	website came to life is unforgettable. 😃
+</p>
+
+<p>
+	In 2020, I launched my own website, Tronic247, where I share programming
+	knowledge through tutorials. I cover a wide range of topics, including HTML,
+	CSS, JavaScript, React, Node.js, MySQL, and PHP. My website attracts over 100
+	unique visitors daily, and I'm grateful to share my passion and help others
+	discover the joy of programming. 🌐
+</p>
+
+<p>
+	In 2021, during the pandemic, I saw an opportunity to expand my skills
+	further. I delved deep into JavaScript, CSS, React, and Svelte. My hard work
+	paid off, and I'm now certified as better than 99% of JavaScript developers in
+	problem-solving. 💪
+</p>
+
+<p>
+	Well, now it's 2023, and I'm a full-stack developer now 😄 (but also a student
+	lol). I'm currently intrested in LLM stuff and mostly JavaScript. I made some
+	IoT devices using NodeMCUs and Arduinos.
+</p>
+
+<p>
+	Besides programming, I have other hobbies that keep me engaged. I love playing
+	badminton, reading books, and solving puzzles. I'm also an avid traveler,
+	always seeking new adventures. And, of course, as a true Marvel fan, I'm a
+	huge fan of the Avengers and their heroic exploits! 🏸📚
+</p>
+
+{#if summarizeStep}
+	<p transition:slide class="bg-base-300 p-4 text-sm rounded">
+		{#if summarizeStep === 1}
+			Posandu Mapa, a {age.toFixed()}-year-old from Sri Lanka, embarked on a
+			coding journey at the age of 11, learning HTML and CSS without internet
+			access. Through self-motivation and determination, they honed their skills
+			and created websites. In 2020, they launched Tronic247, a website where
+			they share programming tutorials. Their passion for programming led them
+			to expand their skills in JavaScript, CSS, React, and Svelte. Now a
+			full-stack developer, Posandu is also interested in LLM and enjoys
+			creating IoT devices using NodeMCUs and Arduinos. Alongside programming,
+			they enjoy playing badminton, reading books, solving puzzles, and being a
+			Marvel fan.
+		{:else if summarizeStep === 2}
+			Posandu Mapa is a {age.toFixed()}-year-old self-taught coder from Sri
+			Lanka. Starting at age 11 without internet access, they learned HTML and
+			CSS and created websites. In 2020, they launched Tronic247 for programming
+			tutorials. Their skills expanded to JavaScript, CSS, React, and Svelte,
+			becoming a full-stack developer. They are also interested in LLM and enjoy
+			creating IoT devices using NodeMCUs and Arduinos. Outside coding, they
+			play badminton, read books, solve puzzles, and are a Marvel fan.
+		{:else if summarizeStep === 3}
+			Posandu Mapa is a {age.toFixed()}-year-old self-taught coder from Sri
+			Lanka. They started learning HTML and CSS at age 11, created websites, and
+			launched Tronic247 for programming tutorials in 2020. Their skills now
+			include JavaScript, CSS, React, and Svelte, making them a full-stack
+			developer. They are also interested in LLM and enjoy creating IoT devices
+			with NodeMCUs and Arduinos. In their free time, they play badminton, read
+			books, solve puzzles, and are a Marvel fan.
+		{:else}
+			I'm sorry to hear that you're having trouble reading. I can certainly help
+			you. If you're looking to improve your English reading skills, I recommend
+			visiting the website <a
+				href="https://www.wikihow.com/Learn-English"
+				class="text-blue-200 hover:underline"
+				>https://www.wikihow.com/Learn-English</a
+			>. It's a helpful resource that provides various articles and guides to
+			assist you in learning how to read and improve your English proficiency.
+			Give it a try, and feel free to reach out if you have any specific
+			questions or need further assistance.
+		{/if}
+	</p>
+{/if}
+
+<div class="bg-base-200 justify-between px-4 py-3 items-center rounded flex">
+	<span> Please summarize the above text </span>
+
+	<button
+		class="btn btn-circle btn-sm btn-ghost"
+		on:click={() => summarizeStep++}
+	>
+		<Icon icon="ic:baseline-send" class="text-2xl" />
+	</button>
 </div>
+
+<style>
+	p {
+		margin-bottom: 15px;
+		line-height: 30px;
+	}
+</style>

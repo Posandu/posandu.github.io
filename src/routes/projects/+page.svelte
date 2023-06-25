@@ -49,19 +49,17 @@
 	<title>Posandu Mapa - Projects I've worked on</title>
 </svelte:head>
 
-<h1 class="text-2xl mb-4">Projects</h1>
-
-<div class="grid md:grid-cols-3 gap-3 sm:grid-cols-2">
+<div class="grid md:grid-cols-2 gap-3 sm:grid-cols-2">
 	{#each projects as project}
 		<a
-			class="col-span-1 block bg-[#070710] p-6 rounded hover:bg-base-300 transition-all"
+			class="col-span-1 block bg-base-200 p-6 rounded hover:bg-base-200/90 active:scale-95 transition-all"
 			href={project.link}
 		>
-			<h1 class="text-xl">{project.name}</h1>
-			<p class="my-2">{project.description}</p>
+			<h1 class="text-lg">{project.name}</h1>
+			<p class="my-2 text-sm">{project.description}</p>
 
 			{#each project.roles as role}
-				<span class="text-sm mt-2 rounded bg-gray-900 p-1">
+				<span class="text-sm mt-2 rounded bg-base-300 px-2 py-1">
 					{role}
 				</span>
 			{/each}
