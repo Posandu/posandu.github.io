@@ -5,7 +5,7 @@
 <div class="flex bg-base-200 hover:bg-base-200/90 mt-4 rounded p-4">
 	<div class="mr-2">Productivity:</div>
 
-	<div class="flex-1 text-white">Notion, MS Todo, PowerToys</div>
+	<div class="flex-1 text-white">MS Todo, PowerToys, ChatGPT</div>
 </div>
 
 <div class="flex bg-base-200 hover:bg-base-200/90 mt-4 rounded p-4">

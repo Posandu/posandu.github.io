@@ -2,6 +2,8 @@
 	import Icon from "@iconify/svelte";
 	import { onDestroy } from "svelte";
 	import { slide } from "svelte/transition";
+	import TypingComponent from "./TypingComponent.svelte";
+	import { text } from "svelte/internal";
 
 	const quotes = [
 		{
@@ -86,11 +88,12 @@
 	</div>
 </div>
 
-<h2 class="text-lg mb-2">👋 Hey!</h2>
+<h2 class="text-2xl mb-2 font-semibold">Hey! 👋</h2>
 
 <p>
 	I'm Posandu Mapa from Sri Lanka. I'm currently <span
 		style="width: 85px;display:inline-block"
+		class="rounded transition-all hover:text-white m-0"
 	>
 		{age}</span
 	> years old. I enjoy coding, playing badminton, and reading books. 🧑‍💻
@@ -134,7 +137,8 @@
 {#if summarizeStep}
 	<p transition:slide class="bg-base-300 p-4 text-sm rounded">
 		{#if summarizeStep === 1}
-			Posandu Mapa, a {age.toFixed()}-year-old from Sri Lanka, embarked on a
+			<TypingComponent
+				text="Posandu Mapa, a {age.toFixed()}-year-old from Sri Lanka, embarked on a
 			coding journey at the age of 11, learning HTML and CSS without internet
 			access. Through self-motivation and determination, they honed their skills
 			and created websites. In 2020, they launched Tronic247, a website where
@@ -143,39 +147,54 @@
 			full-stack developer, Posandu is also interested in LLM and enjoys
 			creating IoT devices using NodeMCUs and Arduinos. Alongside programming,
 			they enjoy playing badminton, reading books, solving puzzles, and being a
-			Marvel fan.
+			Marvel fan."
+			/>
 		{:else if summarizeStep === 2}
-			Posandu Mapa is a {age.toFixed()}-year-old self-taught coder from Sri
-			Lanka. Starting at age 11 without internet access, they learned HTML and
-			CSS and created websites. In 2020, they launched Tronic247 for programming
-			tutorials. Their skills expanded to JavaScript, CSS, React, and Svelte,
-			becoming a full-stack developer. They are also interested in LLM and enjoy
-			creating IoT devices using NodeMCUs and Arduinos. Outside coding, they
-			play badminton, read books, solve puzzles, and are a Marvel fan.
+			<TypingComponent
+				text="Posandu Mapa is a {age.toFixed()}-year-old self-taught coder from Sri
+		Lanka. Starting at age 11 without internet access, they learned HTML and
+		CSS and created websites. In 2020, they launched Tronic247 for programming
+		tutorials. Their skills expanded to JavaScript, CSS, React, and Svelte,
+		becoming a full-stack developer. They are also interested in LLM and enjoy
+		creating IoT devices using NodeMCUs and Arduinos. Outside coding, they
+		play badminton, read books, solve puzzles, and are a Marvel fan."
+			/>
 		{:else if summarizeStep === 3}
-			Posandu Mapa is a {age.toFixed()}-year-old self-taught coder from Sri
-			Lanka. They started learning HTML and CSS at age 11, created websites, and
-			launched Tronic247 for programming tutorials in 2020. Their skills now
-			include JavaScript, CSS, React, and Svelte, making them a full-stack
-			developer. They are also interested in LLM and enjoy creating IoT devices
-			with NodeMCUs and Arduinos. In their free time, they play badminton, read
-			books, solve puzzles, and are a Marvel fan.
+			<TypingComponent
+				text="Posandu Mapa is a {age.toFixed()}-year-old self-taught coder from Sri
+		Lanka. They started learning HTML and CSS at age 11, created websites, and
+		launched Tronic247 for programming tutorials in 2020. Their skills now
+		include JavaScript, CSS, React, and Svelte, making them a full-stack
+		developer. They are also interested in LLM and enjoy creating IoT devices
+		with NodeMCUs and Arduinos. In their free time, they play badminton, read
+		books, solve puzzles, and are a Marvel fan."
+			/>
 		{:else if summarizeStep === 4}
-			Posandu Mapa, a {age.toFixed()}-year-old self-taught coder from Sri Lanka.
-			Started coding at 11, launched Tronic247 in 2020. Skills: HTML, CSS,
-			JavaScript, React, Svelte. Full-stack developer. Creates IoT devices,
-			plays badminton, reads, solves puzzles, Marvel fan.
+			<TypingComponent
+				text="Posandu Mapa, a {age.toFixed()}-year-old self-taught coder from Sri Lanka.
+		Started coding at 11, launched Tronic247 in 2020. Skills: HTML, CSS,
+		JavaScript, React, Svelte. Full-stack developer. Creates IoT devices,
+		plays badminton, reads, solves puzzles, Marvel fan."
+			/>
 		{:else if summarizeStep === 5}
-			Posandu Mapa, {age.toFixed()}-year-old self-taught coder from Sri Lanka.
-			HTML, CSS, JavaScript, React, Svelte skills. Full-stack developer. Creates
-			IoT devices, plays badminton, reads, puzzles, Marvel fan.
+			<TypingComponent
+				text="Posandu Mapa, {age.toFixed()}-year-old self-taught coder from Sri Lanka.
+		HTML, CSS, JavaScript, React, Svelte skills. Full-stack developer. Creates
+		IoT devices, plays badminton, reads, puzzles, Marvel fan."
+			/>
 		{:else if summarizeStep === 6}
-			Posandu Mapa, {age.toFixed()}-year-old coder. Full-stack developer.
-			Creates IoT, plays badminton, reads, puzzles, Marvel fan.
+			<TypingComponent
+				text="Posandu Mapa, {age.toFixed()}-year-old coder. Full-stack developer.
+		Creates IoT, plays badminton, reads, puzzles, Marvel fan."
+			/>
 		{:else if summarizeStep === 7}
-			Posandu Mapa, {age.toFixed()}-year-old coder. Full-stack developer.
+			<TypingComponent
+				text="Posandu Mapa, {age.toFixed()}-year-old coder. Full-stack developer."
+			/>
 		{:else}
-			<div class="rounded border border-red-600 bg-red-900/40 text-red-200 px-4 py-2">
+			<div
+				class="rounded border border-red-600 bg-red-900/40 text-red-200 px-4 py-2"
+			>
 				Sorry, something went wrong. Please try again later.
 			</div>
 		{/if}

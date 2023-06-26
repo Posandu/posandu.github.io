@@ -68,7 +68,12 @@
 		>{icons[icon]}</button
 	>
 	by Posandu Mapa in
-	<span class="text-yellow-500">Sri Lanka</span>
+	<span class="text-yellow-500">Sri Lanka</span>. Open source on
+	<a
+		href="https://github.com/posandu/posandu.github.io"
+		target="_blank"
+		class="text-blue-500 hover:underline">GitHub</a
+	>.
 </p>
 
 <div class="text-center mt-6">
@@ -76,10 +81,10 @@
 		<a
 			href={social.link}
 			target="_blank"
-			class="btn mx-1 bg-transparent border-none btn-circle text-white transition-all -outline-offset-4 hover:outline-offset-1"
+			class="btn btn-sm mx-1 bg-transparent border-none btn-circle text-white transition-all -outline-offset-4 hover:outline-offset-1"
 			title={social.name}
 		>
-			<Icon icon={social.icon} class="inline text-2xl" />
+			<Icon icon={social.icon} class="inline text-xl" />
 		</a>
 	{/each}
 </div>
