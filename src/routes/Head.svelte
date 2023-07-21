@@ -59,6 +59,10 @@
 			name: "Guestbook",
 			link: "/guestbook",
 		},
+		{
+			name: "Art",
+			link: "/art",
+		},
 	];
 </script>
 
@@ -79,11 +83,14 @@
 	<img
 		src="https://images.unsplash.com/photo-1510784722466-f2aa9c52fff6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
 		alt=""
-		class="h-60 -z-50 relative w-full object-cover rounded"
+		class="h-60 rounded-t-none -z-50 relative w-full object-cover rounded"
 		style="object-position: 50% {$y}px"
 	/>
 
-	<div class="tooltip opacity-0 group-hover:opacity-100 transition-all -translate-y-4 group-hover:translate-y-0 tooltip-bottom absolute top-4 right-4" data-tip="View my AI art">
+	<div
+		class="tooltip opacity-0 group-hover:opacity-100 transition-all -translate-y-4 group-hover:translate-y-0 tooltip-bottom absolute top-4 right-4"
+		data-tip="View my AI art"
+	>
 		<a class="btn btn-circle" href="art">?</a>
 	</div>
 </div>
@@ -122,12 +129,12 @@
 	</div>
 </div>
 
-<div class="flex tabs mt-4 top-0 mb-8 w-full px-10">
+<div class="grid md:grid-cols-7 sm:grid-cols-4 grid-cols-3 gap-2 mt-4 top-0 mb-8 w-full px-10">
 	{#each menuItems as item}
 		<a
 			href={item.link}
-			class="tab {$page.url.pathname === item.link
-				? 'tab-active tab-bordered'
+			class="tab col-span-1 {$page.url.pathname === item.link
+				? 'tab-active bg-primary/90'
 				: ''} rounded hover:bg-primary/90"
 		>
 			{item.name}

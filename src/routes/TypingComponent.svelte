@@ -2,7 +2,7 @@
 	import { onDestroy, onMount } from "svelte";
 
 	export let text = "";
-	export let speed = Math.random() * 200;
+	export let speed = Math.random() * 20;
 	export let cursor = "|";
 	export let cursorSpeed = 500;
 

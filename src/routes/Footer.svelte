@@ -76,7 +76,7 @@
 	>.
 </p>
 
-<div class="text-center mt-6">
+<div class="text-center mt-6 mb-6">
 	{#each socialArr as social}
 		<a
 			href={social.link}

@@ -16,7 +16,7 @@
 	}
 </script>
 
-<main class="max-w-2xl m-auto md:my-10">
+<main class="max-w-3xl m-auto">
 	<Head />
 
 	<div class="px-10">
