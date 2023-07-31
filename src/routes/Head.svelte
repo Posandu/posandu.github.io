@@ -104,7 +104,16 @@
 	</div>
 
 	<div class="rounded p-4 -m-4">
-		<h1 class="text-2xl mt-2 font-semibold flex items-center">Posandu Mapa</h1>
+		<h1 class="text-2xl mt-2 font-semibold flex items-center">
+			Posandu Mapa
+
+			<a
+				class="text-base ml-2 text-gray-400 underline hover:text-gray-500 transition-all hover:no-underline"
+				href="https://www.linkedin.com/in/posandu"
+			>
+				is looking for a job
+			</a>
+		</h1>
 
 		<p class="mt-2 mb-4">Fullstack Developer | Student</p>
 
@@ -129,7 +138,9 @@
 	</div>
 </div>
 
-<div class="grid md:grid-cols-7 sm:grid-cols-4 grid-cols-3 gap-2 mt-4 top-0 mb-8 w-full px-10">
+<div
+	class="grid md:grid-cols-7 sm:grid-cols-4 grid-cols-3 gap-2 mt-4 top-0 mb-8 w-full px-10"
+>
 	{#each menuItems as item}
 		<a
 			href={item.link}
