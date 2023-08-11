@@ -14,6 +14,11 @@
 			link: "https://twitter.com/posandu",
 		},
 		{
+			name: "X",
+			icon: "simple-icons:x",
+			link: "https://x.com/posandu",
+		},
+		{
 			name: "DEV",
 			icon: "material-symbols:logo-dev",
 			link: "https://dev.to/posandu",

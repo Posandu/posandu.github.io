@@ -1,4 +1,6 @@
 <script>
+	import { Ripple } from "../ripple";
+
 	const projects = [
 		{
 			name: "Tronic247 Material",
@@ -52,8 +54,9 @@
 <div class="grid md:grid-cols-2 gap-3 sm:grid-cols-2">
 	{#each projects as project}
 		<a
-			class="col-span-1 block bg-base-200 p-6 rounded hover:bg-base-200/90 active:scale-95 transition-all"
+			class="col-span-1 block bg-base-200 p-6 rounded hover:bg-base-200/90 active:scale-95 transition-all ripple-effect"
 			href={project.link}
+			use:Ripple
 		>
 			<h1 class="text-lg">{project.name}</h1>
 			<p class="my-2 text-sm">{project.description}</p>

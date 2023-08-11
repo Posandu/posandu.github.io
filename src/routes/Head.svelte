@@ -3,6 +3,7 @@
 	import Icon from "@iconify/svelte";
 	import { onDestroy, onMount } from "svelte";
 	import { spring } from "svelte/motion";
+	import { Ripple } from "./ripple";
 
 	const y = spring(0, {
 		stiffness: 1,
@@ -88,15 +89,16 @@
 	/>
 
 	<div
-		class="tooltip opacity-0 group-hover:opacity-100 transition-all -translate-y-4 group-hover:translate-y-0 tooltip-bottom absolute top-4 right-4"
+		class="tooltip opacity-0 group-hover:opacity-100 transition-all -translate-y-4 group-hover:translate-y-0 tooltip-bottom absolute top-4 right-4 overflow-hidden rounded-full"
 		data-tip="View my AI art"
+		use:Ripple
 	>
 		<a class="btn btn-circle" href="art">?</a>
 	</div>
 </div>
 
 <div class="-mt-20 px-10 z-10">
-	<div class="w-28 rounded-full relative z-50 overflow-hidden">
+	<div class="w-28 rounded-full relative z-50 overflow-hidden" use:Ripple>
 		<img
 			src="https://avatars.githubusercontent.com/u/76736580?v=4"
 			alt="avatar"
@@ -109,9 +111,10 @@
 
 			<a
 				class="text-base ml-2 text-gray-400 underline hover:text-gray-500 transition-all hover:no-underline"
-				href="https://www.linkedin.com/in/posandu"
+				href="https://read.cv/posandu"
+				target="_blank"
 			>
-				is looking for a job
+				is open for collabs
 			</a>
 		</h1>
 
@@ -146,7 +149,8 @@
 			href={item.link}
 			class="tab col-span-1 {$page.url.pathname === item.link
 				? 'tab-active bg-primary/90'
-				: ''} rounded hover:bg-primary/90"
+				: ''} rounded hover:bg-primary/90 ripple-effect"
+			use:Ripple
 		>
 			{item.name}
 		</a>

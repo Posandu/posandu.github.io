@@ -5,12 +5,12 @@
 		{
 			year: "2023 - JUL",
 			icon: "ic:round-work-off",
-			details: "Stopped working at the AI startup.",
+			details: "Copleted the project at Realm Labs AI"
 		},
 		{
 			year: "2023 - FEB",
 			icon: "ic:round-work",
-			details: "Employed as a fullstack developer in an AI startup.",
+			details: "Employed as a fullstack Engineer in Realm Labs AI"
 		},
 		{
 			year: "2022 - OCT",
