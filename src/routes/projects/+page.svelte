@@ -1,5 +1,5 @@
 <script>
-	import { Ripple } from "../ripple";
+	import { ripple } from "svelte-ripple-action";
 
 	const projects = [
 		{
@@ -44,6 +44,12 @@
 			roles: ["Team Member"],
 			link: "https://win11-svelte.vercel.app/",
 		},
+		{
+			name: "Svelte Ripple Action",
+			description: "Ripple effect for Svelte.",
+			roles: ["Creator"],
+			link: "https://ripple.posandu.com/"
+		},
 	];
 </script>
 
@@ -56,7 +62,7 @@
 		<a
 			class="col-span-1 block bg-base-200 p-6 rounded hover:bg-base-200/90 active:scale-95 transition-all ripple-effect"
 			href={project.link}
-			use:Ripple
+			use:ripple
 		>
 			<h1 class="text-lg">{project.name}</h1>
 			<p class="my-2 text-sm">{project.description}</p>

@@ -4,7 +4,7 @@
 	import { slide } from "svelte/transition";
 	import TypingComponent from "./TypingComponent.svelte";
 	import { text } from "svelte/internal";
-	import { Ripple } from "./ripple";
+	import { ripple } from "svelte-ripple-action";
 
 	const quotes = [
 		{
@@ -208,7 +208,9 @@
 	<button
 		class="btn btn-circle btn-sm btn-ghost ripple-effect"
 		on:click={() => summarizeStep++}
-		use:Ripple
+		use:ripple={{
+			center: true,
+		}}
 	>
 		<Icon icon="ic:baseline-send" class="text-2xl" />
 	</button>
