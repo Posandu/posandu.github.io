@@ -89,9 +89,10 @@
 	/>
 
 	<div
-		class="tooltip opacity-0 group-hover:opacity-100 transition-all -translate-y-4 group-hover:translate-y-0 tooltip-bottom absolute top-4 right-4 overflow-hidden rounded-full"
+		class="tooltip opacity-0 group-hover:opacity-100 transition-all -translate-y-4 group-hover:translate-y-0 tooltip-bottom top-4 right-4 overflow-hidden rounded-full"
 		data-tip="View my AI art"
-		use:ripple
+		style="position: absolute !important;"
+		use:ripple={{ center: true }}
 	>
 		<a class="btn btn-circle" href="art">?</a>
 	</div>
