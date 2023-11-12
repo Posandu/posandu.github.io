@@ -9,6 +9,7 @@
 		onAuthStateChanged,
 	} from "firebase/auth";
 	import { slide } from "svelte/transition";
+	import { ripple } from "svelte-ripple-action";
 
 	const firebaseConfig = {
 		apiKey: "AIzaSyB6H1a1HfQCkDeOC1kcEo4pKwKIjWNpGno",
@@ -75,7 +76,7 @@
 	<title>Posandu Mapa - Guestbook</title>
 </svelte:head>
 
-<p class="my-2">Leave a message for me!</p>
+<p class="my-2 mt-8">Leave a message for me!</p>
 
 {#if !signedIn}
 	<button
@@ -89,7 +90,7 @@
 		Sign in with Google
 	</button>
 {:else if !sent}
-	<div class="p-4 card bg-base-200 my-4 max-w-lg">
+	<div class="p-4 card bg-base-300 rounded-xl my-4 max-w-lg">
 		<p>
 			You're signed in as {name} 😎
 		</p>
@@ -122,7 +123,7 @@
 				/>
 			</div>
 			<div class="form-control mt-2">
-				<button class="btn btn-primary"> Send </button>
+				<button class="btn btn-primary rounded-xl" use:ripple> Send </button>
 			</div>
 		</form>
 	</div>
@@ -146,40 +147,8 @@
 			{sign.name}
 		</div>
 
-		<div class="chat-bubble max-w-[60vw] overflow-auto">
-			{#if sign.message.length > 200}
-				{#if !sign.opened}
-					<div transition:slide class="overflow-hidden">
-						{sign.message.substring(0, 200)}...
-					</div>
-
-					<button
-						class="btn btn-sm btn-primary"
-						on:click={() => {
-							sign.opened = true;
-						}}
-						transition:slide
-					>
-						Show more
-					</button>
-				{:else}
-					<div transition:slide>
-						{sign.message}
-					</div>
-
-					<button
-						class="btn btn-sm btn-primary"
-						on:click={() => {
-							sign.opened = false;
-						}}
-						transition:slide
-					>
-						Show less
-					</button>
-				{/if}
-			{:else}
-				{sign.message}
-			{/if}
+		<div class="chat-bubble rounded-xl max-w-[60vw] overflow-auto text-sm">
+			{sign.message}
 		</div>
 	</div>
 {/each}

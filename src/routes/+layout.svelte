@@ -14,3 +14,9 @@
 
 	<Footer />
 </main>
+
+<style>
+	:global(body, html) {
+		background-color: #0e0e0e !important;
+	}
+</style>

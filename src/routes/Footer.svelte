@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { navigating } from "$app/stores";
 	import Icon from "@iconify/svelte";
+	import { ripple } from "svelte-ripple-action";
 
 	const socialArr = [
 		{
@@ -66,7 +67,7 @@
 	}
 </script>
 
-<p class="mt-8 text-center">
+<p class="mt-8 text-center text-sm">
 	Made with <button
 		class="text-red-500 cursor-pointer transition-all select-none hover:scale-125 active:scale-95 inline-block"
 		on:click={() => (icon = icon >= icons.length - 1 ? 0 : icon + 1)}
@@ -88,6 +89,7 @@
 			target="_blank"
 			class="btn btn-sm mx-1 bg-transparent border-none btn-circle text-white transition-all -outline-offset-4 hover:outline-offset-1"
 			title={social.name}
+			use:ripple
 		>
 			<Icon icon={social.icon} class="inline text-xl" />
 		</a>

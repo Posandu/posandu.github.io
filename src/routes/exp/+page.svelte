@@ -5,12 +5,12 @@
 		{
 			year: "2023 - JUL",
 			icon: "ic:round-work-off",
-			details: "Copleted the project at Realm Labs AI"
+			details: "Copleted the project at Realm Labs AI",
 		},
 		{
 			year: "2023 - FEB",
 			icon: "ic:round-work",
-			details: "Employed as a fullstack Engineer in Realm Labs AI"
+			details: "Employed as a fullstack Engineer in Realm Labs AI",
 		},
 		{
 			year: "2022 - OCT",
@@ -62,12 +62,14 @@
 	<title>Posandu Mapa - My Experience</title>
 </svelte:head>
 
+<div class="mt-8" />
+
 {#each details as detail}
-	<div class="flex items-center border rounded p-4 border-base-200 mb-4">
+	<div class="flex items-center border rounded-xl p-4 border-base-300 mb-4">
 		<Icon icon={detail.icon} class="text-2xl mr-1" />
 
-		<div class="ml-4">
-			<span class="text-gray-400 block"> {detail.year} </span>
+		<div class="ml-4 text-sm">
+			<span class="text-gray-400 block mb-2"> {detail.year} </span>
 
 			<p>{@html detail.details}</p>
 		</div>

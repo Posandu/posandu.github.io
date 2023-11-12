@@ -80,11 +80,31 @@
 	}}
 />
 
+<header
+	class="sm:fixed shadow-lg top-1 z-50 p-2 bg-base-300 rounded-full overflow-auto mx-auto left-1/2 sm:-translate-x-1/2"
+>
+	<div class="flex sm:pl-0 pl-20 items-center justify-center overflow-auto">
+		{#each menuItems as item}
+			<a
+				href={item.link}
+				class="
+			text-sm px-4 py-2 min-w-min transition-all rounded-full font-semibold
+			{$page.url.pathname === item.link
+					? ' text-white bg-white/10 '
+					: 'hover:bg-white/5'} rounded ripple-effect"
+				use:ripple
+			>
+				{item.name}
+			</a>
+		{/each}
+	</div>
+</header>
+
 <div class="relative group">
 	<img
 		src="https://images.unsplash.com/photo-1510784722466-f2aa9c52fff6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
 		alt=""
-		class="h-60 rounded-t-none -z-50 relative w-full object-cover rounded"
+		class="h-48 rounded-t-none relative w-full object-cover rounded-2xl"
 		style="object-position: 50% {$y}px"
 	/>
 
@@ -98,62 +118,38 @@
 	</div>
 </div>
 
-<div class="-mt-20 px-10 z-10">
-	<div class="w-28 rounded-full relative z-50 overflow-hidden" use:ripple>
-		<img
-			src="https://avatars.githubusercontent.com/u/76736580?v=4"
-			alt="avatar"
-		/>
-	</div>
+<div class="-mt-20 px-10 z-10 text-center">
+	<div class="rounded-full flex flex-col items-center justify-center p-4 -m-4">
+		<div class="w-28 rounded-full relative z-30 overflow-hidden" use:ripple>
+			<img
+				src="https://avatars.githubusercontent.com/u/76736580?v=4"
+				alt="avatar"
+			/>
+		</div>
 
-	<div class="rounded p-4 -m-4">
-		<h1 class="text-2xl mt-2 font-semibold flex items-center">
+		<h1 class="text-4xl my-2 mt-4 flex justify-center items-center">
 			Posandu Mapa
-
-			<a
-				class="text-base ml-2 text-gray-400 underline hover:text-gray-500 transition-all hover:no-underline"
-				href="https://read.cv/posandu"
-				target="_blank"
-			>
-				is open for collabs
-			</a>
 		</h1>
 
-		<p class="mt-2 mb-4">Fullstack Developer | Student</p>
+		<p class="my-2 text-xl mb-4">Fullstack Developer | Student</p>
 
-		<div class="">
+		<div class="my-2 opacity-50">
 			<div class="inline-flex items-center mr-4 mb-2">
-				<Icon icon="fluent:location-12-filled" class="text-lg mr-2" />
-				<p class="text-gray-400 text-sm">Sri Lanka</p>
+				<Icon icon="fluent:location-12-filled" class="text-base mr-2" />
+				<p class="text-sm">Sri Lanka</p>
 			</div>
 
 			<div class="inline-flex items-center mr-4 mb-2">
-				<Icon icon="fluent:mail-16-filled" class="text-lg mr-2" />
-				<p class="text-gray-400 text-sm hover:underline">
+				<Icon icon="fluent:mail-16-filled" class="text-base mr-2" />
+				<p class="text-sm hover:underline">
 					<a href="mailto:posandumapa@gmail.com"> posandumapa@gmail.com </a>
 				</p>
 			</div>
 
 			<div class="inline-flex items-center mb-2">
-				<Icon icon="entypo:cake" class="text-lg mr-2" />
-				<p class="text-gray-400 text-sm">April 20</p>
+				<Icon icon="entypo:cake" class="text-base mr-2" />
+				<p class="text-sm">April 20</p>
 			</div>
 		</div>
 	</div>
-</div>
-
-<div
-	class="grid md:grid-cols-7 sm:grid-cols-4 grid-cols-3 gap-2 mt-4 top-0 mb-8 w-full px-10"
->
-	{#each menuItems as item}
-		<a
-			href={item.link}
-			class="tab col-span-1 {$page.url.pathname === item.link
-				? 'tab-active bg-primary/90'
-				: ''} rounded hover:bg-primary/90 ripple-effect"
-			use:ripple
-		>
-			{item.name}
-		</a>
-	{/each}
 </div>
