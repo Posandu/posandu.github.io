@@ -5,7 +5,7 @@
 		{
 			year: "2023 - JUL",
 			icon: "ic:round-work-off",
-			details: "Copleted the project at Realm Labs AI",
+			details: "Completed the project at Realm Labs AI",
 		},
 		{
 			year: "2023 - FEB",
@@ -69,7 +69,7 @@
 		<Icon icon={detail.icon} class="text-2xl mr-1" />
 
 		<div class="ml-4 text-sm">
-			<span class="text-gray-400 block mb-2"> {detail.year} </span>
+			<span class="text-gray-400 block mb-2 font-semibold"> {detail.year} </span>
 
 			<p>{@html detail.details}</p>
 		</div>

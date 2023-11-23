@@ -80,7 +80,8 @@
 
 {#if !signedIn}
 	<button
-		class="btn btn-primary"
+		class="btn btn-primary rounded-lg"
+		use:ripple
 		on:click={() => {
 			const provider = new GoogleAuthProvider();
 			const auth = getAuth();

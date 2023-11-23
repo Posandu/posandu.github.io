@@ -1,9 +1,16 @@
 <script lang="ts">
 	import { page } from "$app/stores";
 	import Icon from "@iconify/svelte";
-	import { onDestroy, onMount } from "svelte";
+	import { onDestroy } from "svelte";
 	import { spring } from "svelte/motion";
 	import { ripple } from "svelte-ripple-action";
+	import { crossfade, slide } from "svelte/transition";
+	import { circInOut } from "svelte/easing";
+
+	const [send, receive] = crossfade({
+		easing: circInOut,
+		duration: 500,
+	});
 
 	const y = spring(0, {
 		stiffness: 1,
@@ -27,13 +34,18 @@
 
 	let activeQuote = 0;
 
-	const interval = setInterval(() => {
-		activeQuote = activeQuote === quotes.length - 1 ? 0 : activeQuote + 1;
-	}, quotes[activeQuote].text.length * 50 + 1000);
+	const interval = setInterval(
+		() => {
+			activeQuote = activeQuote === quotes.length - 1 ? 0 : activeQuote + 1;
+		},
+		quotes[activeQuote].text.length * 50 + 1000
+	);
 
 	onDestroy(() => {
 		clearInterval(interval);
 	});
+
+	let menuOpen = false;
 
 	const menuItems = [
 		{
@@ -80,25 +92,96 @@
 	}}
 />
 
-<header
-	class="sm:fixed shadow-lg top-1 z-50 p-2 bg-base-300 rounded-full overflow-auto mx-auto left-1/2 sm:-translate-x-1/2"
->
-	<div class="flex sm:pl-0 pl-20 items-center justify-center overflow-auto">
-		{#each menuItems as item}
-			<a
-				href={item.link}
-				class="
+<div class="fixed flex items-center justify-center z-50 w-full top-2 left-0">
+	<header
+		class="shadow-lg overflow-hidden text-center p-2 bg-base-300 rounded-full"
+	>
+		<div
+			class="md:flex hidden sm:pl-0 pl-20 items-center justify-center overflow-auto"
+		>
+			{#each menuItems as item}
+				<a
+					href={item.link}
+					class="
 			text-sm px-4 py-2 min-w-min transition-all rounded-full font-semibold
 			{$page.url.pathname === item.link
-					? ' text-white bg-white/10 '
-					: 'hover:bg-white/5'} rounded ripple-effect"
-				use:ripple
+						? ' text-white bg-white/10 '
+						: 'hover:bg-white/5'} rounded ripple-effect"
+					use:ripple
+				>
+					{item.name}
+				</a>
+			{/each}
+		</div>
+
+		{#if !menuOpen}
+			<button
+				class="text-2xl md:hidden mx-auto"
+				in:receive={{ key: "menu" }}
+				out:send={{ key: "menu" }}
+				on:click={() => {
+					menuOpen = true;
+				}}
 			>
-				{item.name}
+				<Icon
+					icon="ic:baseline-menu"
+					class="md:hidden text-white cursor-pointer"
+				/>
+			</button>
+		{:else}
+			<button
+				class="text-2xl md:hidden mx-auto"
+				in:slide={{
+					delay: 300,
+				}}
+			>
+				<Icon
+					icon="ic:baseline-menu"
+					class="md:hidden text-white cursor-pointer"
+				/>
+			</button>
+		{/if}
+	</header>
+</div>
+
+{#if menuOpen}
+	<div
+		class="fixed rounded-lg top-0 backdrop-blur-xl left-0 w-full h-full z-50 flex items-center justify-center flex-col bg-black/80"
+		in:receive={{ key: "menu" }}
+		out:send={{ key: "menu" }}
+	>
+		<div class="max-h-[95vh] overflow-auto">
+			<a
+				href="#!"
+				class="
+			text-2xl mb-4 px-4 py-2 block
+			 text-white rounded ripple-effect"
+				use:ripple
+				on:click={() => {
+					menuOpen = false;
+				}}
+			>
+				Close Menu
 			</a>
-		{/each}
+			{#each menuItems as item}
+				<a
+					href={item.link}
+					class="
+			text-2xl mb-4 px-4 py-2 block
+			{$page.url.pathname === item.link
+						? ' text-white bg-white/10 '
+						: 'hover:bg-white/5'} rounded ripple-effect"
+					use:ripple
+					on:click={() => {
+						menuOpen = false;
+					}}
+				>
+					{item.name}
+				</a>
+			{/each}
+		</div>
 	</div>
-</header>
+{/if}
 
 <div class="relative group">
 	<img

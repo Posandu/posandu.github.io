@@ -12,3 +12,8 @@ html,
 body {
    scroll-behavior: smooth;
 }
+
+html {
+   overflow-y: scroll;
+   scrollbar-gutter: stable;
+}

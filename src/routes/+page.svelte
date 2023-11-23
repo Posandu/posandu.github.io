@@ -21,9 +21,12 @@
 
 	let activeQuote = 0;
 
-	const interval = setInterval(() => {
-		activeQuote = activeQuote === quotes.length - 1 ? 0 : activeQuote + 1;
-	}, quotes[activeQuote].text.length * 50 + 10000);
+	const interval = setInterval(
+		() => {
+			activeQuote = activeQuote === quotes.length - 1 ? 0 : activeQuote + 1;
+		},
+		quotes[activeQuote].text.length * 50 + 10000
+	);
 
 	const birthDate = new Date("2008-04-20");
 
@@ -95,14 +98,17 @@
 			class="rounded transition-all hover:text-white m-0"
 		>
 			{age}</span
-		> years old. I enjoy coding, playing badminton, and reading books. 🧑‍💻
+		> years old. I enjoy coding, playing badminton, and reading books. 🧑‍💻 I have
+		experience in building Enterprise software and fullstack apps.
 	</p>
 
 	<p>
-		My programming journey started at the age of 11 when I learned some HTML and
-		CSS. What was fun is that I learned everything without internet access,
-		relying on self-motivation and determination! The joy I felt when my first
-		website came to life is unforgettable.
+		I started programming when I was 11 years old. The good thing that helped me
+		to improve me is that I didn't use the internet. I learned everything by
+		reading some old books 😅 and mostly experimenting. I then uploaded YouTube
+		tutorials on my channel, Tronic247, and started a blog. You can see me
+		making apps and doing some <span class="shimmer">crypto</span> stuff when I'm
+		free.
 	</p>
 
 	<p class="{!expanded ? 'opacity-50' : ''} ">
@@ -194,5 +200,25 @@
 	p {
 		margin-bottom: 15px;
 		line-height: 30px;
+	}
+
+	.shimmer {
+		background: linear-gradient(90deg, #e238e8 0px, rgb(41, 63, 160) 50%, #e238e8 100%);
+		background-size: 200%;
+		animation: shimmer 4s linear infinite;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		font-weight: 600;
+		text-shadow: 0px 0px 8px #af09b5;
+	}
+
+	@keyframes shimmer {
+		0% {
+			background-position: 200%;
+		}
+		100% {
+			background-position: -200%;
+		}
 	}
 </style>
