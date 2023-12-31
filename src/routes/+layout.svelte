@@ -112,6 +112,7 @@
 
 <svelte:window
 	on:mousemove={(e) => {
+		/**
 		if (
 			!last ||
 			Math.abs(last.x - e.clientX) > 100 ||
@@ -133,6 +134,7 @@
 				document.body.removeChild(el);
 			});
 		}
+		**/
 	}}
 />
 
