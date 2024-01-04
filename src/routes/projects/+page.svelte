@@ -55,7 +55,7 @@
 		{
 			name: "StackFlex",
 			description:
-				"Modern copy-pasting alternative for developers. Discontinued.",
+				"Modern copy-pasting alternative for developers. Won a Hackathon hosted by Hashnode. Discontinued.",
 			roles: ["Creator"],
 			link: "https://stackflex.tronic247.com/",
 		},
@@ -72,10 +72,10 @@
 	<title>Posandu Mapa - Projects I've worked on</title>
 </svelte:head>
 
-<div class="grid md:grid-cols-2 mt-8 gap-4 sm:grid-cols-2">
+<div class="grid md:grid-cols-2 mt-28 gap-4 sm:grid-cols-2">
 	{#each projects as project}
 		<a
-			class="col-span-1 block bg-base-300 p-6 rounded-xl hover:bg-base-300/90 active:scale-[0.98] transition-all ripple-effect"
+			class="col-span-1 block bg-zinc-900/40 p-6 rounded-lg hover:bg-base-900/50 group transition-all ripple-effect"
 			href={project.link}
 			use:ripple
 		>
@@ -83,7 +83,8 @@
 				<img
 					src={project.img}
 					alt={project.name}
-					class="w-full rounded-xl mb-4"
+					class="w-full rounded-xl mb-4 group-hover:opacity-50 transition-all"
+					loading="lazy"
 				/>
 			{/if}
 
@@ -92,7 +93,7 @@
 
 			{#each project.roles as role}
 				<span
-					class="text-sm mt-4 inline-block rounded bg-base-200/20 font-semibold px-2 py-1"
+					class="text-sm mt-4 inline-block rounded-lg border border-zinc-600/40 text-zinc-400 font-semibold px-2 py-1"
 				>
 					{role}
 				</span>

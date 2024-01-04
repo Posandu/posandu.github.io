@@ -15,11 +15,6 @@
 			link: "https://twitter.com/posandu",
 		},
 		{
-			name: "X",
-			icon: "simple-icons:x",
-			link: "https://x.com/posandu",
-		},
-		{
 			name: "DEV",
 			icon: "material-symbols:logo-dev",
 			link: "https://dev.to/posandu",
@@ -67,31 +62,27 @@
 	}
 </script>
 
-<p class="mt-8 text-center text-sm">
-	Made with <button
-		class="text-red-500 cursor-pointer transition-all select-none hover:scale-125 active:scale-95 inline-block"
-		on:click={() => (icon = icon >= icons.length - 1 ? 0 : icon + 1)}
-		>{icons[icon]}</button
-	>
-	by Posandu Mapa in
-	<span class="text-yellow-500">Sri Lanka</span>. Open source on
-	<a
-		href="https://github.com/posandu/posandu.github.io"
-		target="_blank"
-		class="text-blue-500 hover:underline">GitHub</a
-	>.
-</p>
-
-<div class="text-center mt-6 mb-6">
-	{#each socialArr as social}
+<div class="mt-10 font-medium flex md:flex-row flex-col items-center justify-center">
+	<div class="flex-1">
+		Check out the
 		<a
-			href={social.link}
+			href="https://github.com/posandu/posandu.github.io"
 			target="_blank"
-			class="btn btn-sm mx-1 bg-transparent border-none btn-circle text-white transition-all -outline-offset-4 hover:outline-offset-1"
-			title={social.name}
-			use:ripple
-		>
-			<Icon icon={social.icon} class="inline text-xl" />
-		</a>
-	{/each}
+			class="text-blue-500 hover:underline">source code</a
+		>.
+	</div>
+
+	<div class="my-4">
+		{#each socialArr as social}
+			<a
+				href={social.link}
+				target="_blank"
+				class="btn btn-xs mx-1 bg-transparent border-none btn-circle text-white transition-all -outline-offset-4 hover:outline-offset-1"
+				title={social.name}
+				use:ripple
+			>
+				<Icon icon={social.icon} class="inline text-lg" />
+			</a>
+		{/each}
+	</div>
 </div>

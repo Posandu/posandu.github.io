@@ -3,7 +3,7 @@
 	import "svelte-ripple-action/ripple.css";
 	import Footer from "./Footer.svelte";
 	import Head from "./Head.svelte";
-	import { fly } from "svelte/transition";
+	import { fly, scale } from "svelte/transition";
 	import { onMount } from "svelte";
 
 	export let data;
@@ -138,28 +138,36 @@
 	}}
 />
 
-<main class="max-w-3xl m-auto">
+<main>
 	<Head />
 
-	<div class="px-10">
+	<div class="max-w-4xl mx-auto md:px-8 px-4 overflow-x-hidden">
 		{#key data.url}
 			<div
-				in:fly={{ delay: 300, duration: 300, y: 10, opacity: 0 }}
-				out:fly={{ duration: 300, y: 10, opacity: 0 }}
+				in:scale={{ delay: 300, duration: 200, start: .992, opacity: 0 }}
+				out:scale={{ duration: 200, start: 1.02, opacity: 0}}
+				class="overflow-hidden relative z-10"
 			>
 				<slot />
 			</div>
 		{/key}
-	</div>
 
-	<Footer />
+		<div
+			class="max-w-[100vw] min-h-screen blur-3xl isolate w-full pointer-events-none absolute top-0 left-0 overflow-hidden"
+		>
+			<div
+				class="w-64 h-64 rounded-full bg-gradient-to-tr opacity-30 from-purple-900 to-blue-900 scale-150 absolute pointer-events-none top-20 left-48"
+			></div>
+			<div
+				class="w-64 h-64 rounded-full bg-gradient-to-tr opacity-40 from-purple-900 to-blue-900 scale-150 absolute pointer-events-none bottom-20 right-48"
+			></div>
+		</div>
+
+		<Footer />
+	</div>
 </main>
 
 <style>
-	:global(body, html) {
-		background-color: #0e0e0e !important;
-	}
-
 	:global(.snowflake) {
 		animation: snowflake 1s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94);
 		@apply fixed z-50;

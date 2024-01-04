@@ -3,9 +3,14 @@
 
 	const details = [
 		{
+			year: "2023 - NOV",
+			icon: "fluent-mdl2:financial-solid",
+			details: "Started working for new clients and got into AI and Crypto",
+		},
+		{
 			year: "2023 - JUL",
 			icon: "ic:round-work-off",
-			details: "Completed the project at Realm Labs AI",
+			details: "Left Realm Labs AI",
 		},
 		{
 			year: "2023 - FEB",
@@ -62,10 +67,10 @@
 	<title>Posandu Mapa - My Experience</title>
 </svelte:head>
 
-<div class="mt-8" />
+<div class="mt-36" />
 
 {#each details as detail}
-	<div class="flex items-center border rounded-xl p-4 border-base-300 mb-4">
+	<div class="flex items-center border rounded-xl p-4 border-base-300/60 bg-black/20 backdrop-blur-md mb-4">
 		<Icon icon={detail.icon} class="text-2xl mr-1" />
 
 		<div class="ml-4 text-sm">

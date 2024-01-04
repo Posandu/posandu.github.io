@@ -76,7 +76,7 @@
 	<title>Posandu Mapa - Guestbook</title>
 </svelte:head>
 
-<p class="my-2 mt-8">Leave a message for me!</p>
+<p class="my-2 mt-36">Leave a message for me!</p>
 
 {#if !signedIn}
 	<button
@@ -139,8 +139,8 @@
 {#each signs as sign}
 	<div class="chat mt-4 chat-start my-2">
 		<div class="chat-image avatar">
-			<div class="w-10 rounded-full">
-				<img src={sign.img} alt="avatar" />
+			<div class="rounded-full">
+				<img src={sign.img} alt="avatar" class="object-cover !size-6" />
 			</div>
 		</div>
 
@@ -148,7 +148,9 @@
 			{sign.name}
 		</div>
 
-		<div class="chat-bubble rounded-xl max-w-[60vw] overflow-auto text-sm">
+		<div
+			class="chat-bubble bg-zinc-700/30 backdrop-blur-2xl rounded-xl max-w-[60vw] overflow-auto text-sm"
+		>
 			{sign.message}
 		</div>
 	</div>

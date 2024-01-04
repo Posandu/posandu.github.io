@@ -2,9 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* inter-latin-wght-normal */
+@font-face {
+   font-family: 'Geist';
+   font-style: oblique 0deg 10deg;
+   font-display: swap;
+   font-weight: 100 200 300 400 500 600 700 800 900;
+   src: url(/GeistVariableVF.woff2) format('woff2-variations');
+}
+
 html,
 body {
    scrollbar-gutter: stable;
+   --font: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+   background-color: unset;
+   overflow-x: hidden;
 }
 
 :root,
