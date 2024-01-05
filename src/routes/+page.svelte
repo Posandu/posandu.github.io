@@ -8,27 +8,30 @@
 
 	const birthDate = new Date("2008-04-20"); //4/20 😎
 
-	function calculateAge(birthdate: Date) {
-		const birthTime = new Date(birthdate).getTime();
-		const nowTime = Date.now();
-		const diffTime = nowTime - birthTime;
-		const ageInMilliseconds = Math.abs(diffTime);
-		const ageInYears = ageInMilliseconds / (1000 * 60 * 60 * 24 * 365);
-		const ageWithDecimals = parseFloat(ageInYears.toFixed(8));
-		return ageWithDecimals;
-	}
-
-	let age = calculateAge(birthDate);
-
-	let ageInterval = setInterval(() => {
-		age = calculateAge(birthDate);
-	}, 10);
-
 	let refreshInterval: NodeJS.Timeout;
 
+	const refs = [
+		{
+			name: "Will Yoo - Founder, Realm labs",
+			url: "#",
+			text: `I've worked with top engineers from the classic well regarded places. FANG, Stanford, Ivy League. I've seen the entire spectrum in private market tech - from startups to unicorn company to top defi protocols. I'll say Posandu is among the most reliable, talented, and high integrity of people I've ever worked with. You'd be lucky to have him anywhere near your projects.`,
+		},
+		{
+			name: "Yashash Pugalia",
+			url: "https://github.com/yashash-pugalia",
+			text: `Posandu is an incredibly talented developer. I've had the pleasure
+		of collaborating with him on several projects, and I'm always impressed by
+		his knowledge and skillset. I have no doubt he'll continue to excel in his
+		future endeavours.`,
+		},
+	];
+
+	let changeInterval: NodeJS.Timeout;
+	let currentRef = 0;
+
 	onDestroy(() => {
-		clearInterval(ageInterval);
 		clearInterval(refreshInterval);
+		clearInterval(changeInterval);
 	});
 
 	onMount(async () => {
@@ -37,6 +40,11 @@
 		refreshInterval = setInterval(async () => {
 			spotifyData = (await getSpotifyData()).data;
 		}, 10000); //10 seconds - less than 1kb of data per request so it's fine ig
+
+		changeInterval = setInterval(() => {
+			currentRef++;
+			if (currentRef >= refs.length) currentRef = 0;
+		}, refs[currentRef].text.length * 100); //100ms per character
 	});
 </script>
 
@@ -55,7 +63,9 @@
 		</h1>
 
 		<h2 class="text-2xl opacity-40">
-			{Math.floor(age)} year old dev and student
+			{Math.floor(
+				(new Date().getTime() - birthDate.getTime()) / 1000 / 60 / 60 / 24 / 365
+			)} year old dev and student
 		</h2>
 
 		<a
@@ -138,16 +148,36 @@
 
 <div class="rounded-lg bg-blue-900/20 p-4">
 	<p class="text-sm">
-		&ldquo; Posandu is an incredibly talented developer. I've had the pleasure
-		of collaborating with him on several projects, and I'm always impressed by
-		his knowledge and skillset. I have no doubt he'll continue to excel in his
-		future endeavours. &rdquo; <br />
+		<span class="text-gray-100/30 text-lg inline-block mr-1">&ldquo;</span
+		>{refs[currentRef].text}<span
+			class="text-gray-100/30 text-lg inline-block ml-1">&rdquo;</span
+		> <br />
 		<a
-			href="https://github.com/yashash-pugalia"
+			href={refs[currentRef].url}
 			class="text-white/30 inline-block mt-2"
-			target="_blank">Yashash Pugalia</a
+			target="_blank">{refs[currentRef].name}</a
 		>
 	</p>
+
+	<div class="flex gap-2 mt-2">
+		{#each refs as item, i}
+			<button
+				class="w-4 h-4 rounded-full bg-blue-900/50 hover:bg-blue-900/80 {refs[
+					currentRef
+				] === item
+					? 'active bg-blue-900'
+					: ''} transition duration-200"
+				on:click={() => {
+					currentRef = i;
+					clearInterval(changeInterval);
+					changeInterval = setInterval(() => {
+						currentRef++;
+						if (currentRef >= refs.length) currentRef = 0;
+					}, refs[currentRef].text.length * 100); //100ms per character
+				}}
+			></button>
+		{/each}
+	</div>
 </div>
 
 <h2 class="mt-16 mb-8 text-2xl font-semibold">Contact me</h2>
