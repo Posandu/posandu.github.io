@@ -27,8 +27,8 @@ dependencies:
     specifier: ^1.0.25
     version: 1.0.25
   svelte-ripple-action:
-    specifier: ^1.0.4
-    version: 1.0.4(svelte@3.59.2)
+    specifier: ^1.0.5
+    version: 1.0.5(svelte@3.59.2)
 
 devDependencies:
   '@fontsource/fira-mono':
@@ -2488,8 +2488,8 @@ packages:
       typescript: 5.3.3
     dev: true
 
-  /svelte-ripple-action@1.0.4(svelte@3.59.2):
-    resolution: {integrity: sha512-+JnH5CDwMoZotLpJ0uu+LND1evia73tyV1ajrwtAt8fNuBhPVZdI05d4W5sG5Nv0wpyVx0IAIpxKEGMLKcyxjg==}
+  /svelte-ripple-action@1.0.5(svelte@3.59.2):
+    resolution: {integrity: sha512-ZByO2d9tu1hR8S2OtYSJcj5yFdUcDqkATK9miczXCgQDFKdiUALcgqyxEEXjsx2wnER/UonfSqAD3U3Y4Avkww==}
     peerDependencies:
       svelte: ^4.0.0
     dependencies:
