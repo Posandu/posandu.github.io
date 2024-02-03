@@ -162,11 +162,11 @@
 	<div class="flex gap-2 mt-2">
 		{#each refs as item, i}
 			<button
-				class="w-4 h-4 rounded-full bg-blue-900/50 hover:bg-blue-900/80 {refs[
-					currentRef
-				] === item
+				class="w-4 h-4 rounded-full hover:bg-blue-900/80 {refs[currentRef]
+					.text === item.text
 					? 'active bg-blue-900'
-					: ''} transition duration-200"
+					: 'bg-blue-900/50'} transition duration-200"
+				use:ripple={{ center: true }}
 				on:click={() => {
 					currentRef = i;
 					clearInterval(changeInterval);

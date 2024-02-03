@@ -12,7 +12,7 @@
 		if (container) {
 			masonry = new MiniMasonry({
 				container: container!,
-				gutter: 1,
+				gutter: 10,
 			});
 		}
 	});
@@ -31,7 +31,7 @@
 <div class="relative" bind:this={container}>
 	{#each data.images.map( (i) => ({ l: "/images/compressed/" + i.name, i }) ) as { l, i }}
 		<a
-			class="absolute group overflow-hidden"
+			class="absolute group rounded overflow-hidden"
 			href={"/images/original/" + i.name}
 			rel="noopener"
 			target="_blank"
@@ -46,7 +46,7 @@
 
 			{#if !i?.name?.includes("none")}
 				<div
-					class="absolute opacity-0 group-hover:opacity-100 transition-opacity inset-0 p-1 bg-gradient-to-t from-black/80 to-black/10 flex items-end justify-center text-white"
+					class="absolute opacity-0 group-hover:opacity-100 transition-opacity inset-0 p-1 bg-gradient-to-t from-black/20 drop-shadow to-black/10 flex items-end justify-center text-white"
 				>
 					{i.name?.split(".")[0]}
 				</div>

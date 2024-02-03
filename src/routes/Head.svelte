@@ -10,6 +10,10 @@
 		duration: 300,
 	});
 
+	const [sendMenu, receiveMenu] = crossfade({
+		duration: 300,
+	});
+
 	const y = spring(0, {
 		stiffness: 1,
 		damping: 1,
@@ -61,20 +65,30 @@
 <div class="fixed flex items-center justify-center z-50 w-full top-2 left-0">
 	<header class="md:shadow-lg text-center p-2 md:bg-zinc-900 md:rounded-full">
 		<div
-			class="md:flex hidden sm:pl-0 pl-20 items-center justify-center overflow-auto"
+			class="md:flex hidden sm:pl-0 pl-20 items-center justify-center overflow-hidden relative"
 		>
 			{#each menuItems as item}
-				<a
-					href={item.link}
-					class="
-			text-sm px-4 py-2 min-w-min transition-all rounded-full font-semibold
+				<div class="relative h-max flex items-center justify-center">
+					<a
+						href={item.link}
+						class="
+			text-sm px-4 py-2 inline-block relative z-10 min-w-min transition-all rounded-full font-semibold
 			{$page.url.pathname === item.link
-						? ' text-white bg-white/10 '
-						: 'hover:bg-white/5'} rounded ripple-effect"
-					use:ripple
-				>
-					{item.name}
-				</a>
+							? ' text-white bg-[#343434]'
+							: 'hover:bg-white/5'} rounded ripple-effect"
+						use:ripple
+					>
+						{item.name}
+					</a>
+
+					{#if $page.url.pathname === item.link}
+						<div
+							class="absolute w-full h-full blur-lg inset-0 rounded-full bg-white/10"
+							in:receive={{ key: "menu" }}
+							out:send={{ key: "menu" }}
+						></div>
+					{/if}
+				</div>
 			{/each}
 		</div>
 

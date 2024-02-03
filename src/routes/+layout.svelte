@@ -144,8 +144,8 @@
 	<div class="max-w-4xl mx-auto md:px-8 px-4 overflow-x-hidden">
 		{#key data.url}
 			<div
-				in:scale={{ delay: 300, duration: 200, start: .992, opacity: 0 }}
-				out:scale={{ duration: 200, start: 1.02, opacity: 0}}
+				in:scale={{ delay: 300, duration: 200, start: 0.992, opacity: 0 }}
+				out:scale={{ duration: 200, start: 1.02, opacity: 0 }}
 				class="overflow-hidden relative z-10"
 			>
 				<slot />
