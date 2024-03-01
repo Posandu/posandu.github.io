@@ -56,14 +56,14 @@
 	<div
 		class="col-span-1 flex flex-col justify-center md:items-start items-center"
 	>
-		<h2 class="text-3xl opacity-60 font-light">Heyo!</h2>
+		<h2 class="text-3xl opacity-60 font-light">Hey!</h2>
 
 		<h1 class="text-5xl my-4 font-medium text-white">
 			<TypingComponent text="I'm Posandu" /> <span class="opacity-0">.</span>
 		</h1>
 
 		<h2 class="text-2xl opacity-40">
-			{Math.floor(
+			{Math.round(
 				(new Date().getTime() - birthDate.getTime()) / 1000 / 60 / 60 / 24 / 365
 			)} year old dev and student
 		</h2>
@@ -87,30 +87,51 @@
 <h2 class="mt-48 mb-8 text-2xl font-semibold">About me</h2>
 
 <div class="grid gap-4 md:grid-cols-3 grid-cols-1 mb-4">
-	<div class="col-span-1 flex flex-col gap-4">
-		<div class=" bg-green-600 rounded-xl p-4 relative">
-			<h2 class="text-white/50 text-2xl mb-2 font-medium">Spotify</h2>
+	<div class="col-span-1 flex flex-col gap-4 relative">
+		<div class="relative group">
+			<div
+				class="bg-green-800 justify-between flex p-4 pt-1 mx-4 rounded-xl absolute w-[calc(100%-2rem)] text-sm h-full group-hover:-top-7 items-start transition-all -top-6 opacity-0 group-hover:opacity-100"
+			>
+				<div class="flex items-center justify-between w-full">
+					<p>Learn to create this</p>
 
-			{#if spotifyData?.listening_to_spotify}
-				<p class="text-lg font-bold text-white">
-					Listening to
 					<a
-						href="https://open.spotify.com/track/{spotifyData?.spotify
-							?.track_id}">{spotifyData?.spotify?.song}</a
+						href="https://www.tronic247.com/adding-your-discord-status-to-your-website/"
+						target="_blank"
+						class="bg-white/10 font-semibold px-2 py-1 rounded-lg transition duration-200"
+						use:ripple
 					>
-					by
-					{spotifyData?.spotify?.artist}
-				</p>
-				<img
-					src={spotifyData?.spotify?.album_art_url}
-					alt="Album art"
-					class="rounded-lg size-12 inline-block absolute right-2 top-2"
-				/>
-			{:else}
-				<p class="text-lg font-bold text-white">
-					Not listening to anything right now
-				</p>
-			{/if}
+						Read
+					</a>
+				</div>
+			</div>
+
+			<div
+				class=" bg-green-600 rounded-xl p-4 relative transition-all group-hover:translate-y-2"
+			>
+				<h2 class="text-white/50 text-2xl mb-2 font-medium">Spotify</h2>
+
+				{#if spotifyData?.listening_to_spotify}
+					<p class="text-lg font-bold text-white">
+						Listening to
+						<a
+							href="https://open.spotify.com/track/{spotifyData?.spotify
+								?.track_id}">{spotifyData?.spotify?.song}</a
+						>
+						by
+						{spotifyData?.spotify?.artist}
+					</p>
+					<img
+						src={spotifyData?.spotify?.album_art_url}
+						alt="Album art"
+						class="rounded-lg size-12 inline-block absolute right-2 top-2"
+					/>
+				{:else}
+					<p class="text-lg font-bold text-white">
+						Not listening to anything right now
+					</p>
+				{/if}
+			</div>
 		</div>
 
 		<div class=" bg-red-600 rounded-xl p-4">
@@ -142,6 +163,10 @@
 				href="https://www.codingame.com/certification/UuE-yYkOPsUD3F6aCWZ5ZA"
 				>Codingame</a
 			> at solving problems with JavaScipt.
+		</p>
+
+		<p class="my-2">
+			My other hobbies include badminton, reading, and writing.
 		</p>
 	</div>
 </div>

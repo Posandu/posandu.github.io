@@ -35,16 +35,6 @@
 			link: "https://codepen.io/posandu",
 		},
 		{
-			name: "YouTube",
-			icon: "ri:youtube-fill",
-			link: "https://www.youtube.com/@posandu",
-		},
-		{
-			name: "Instagram",
-			icon: "akar-icons:instagram-fill",
-			link: "https://www.instagram.com/posanduu/",
-		},
-		{
 			name: "Discord",
 			icon: "akar-icons:discord-fill",
 			link: "https://tronic247.com/pastebox.html#O=CISwzgxg9gTgJgLgAQAUpgIYDs4FcDEALAAwlIAUUANnAJQBQSTzLrAAgA7rZ4VYCmAd1pA",

@@ -10,7 +10,7 @@
 
 <div class="grid grid-cols-6 gap-4">
 	<div
-		class="flex flex-col col-span-6 md:col-span-3 h-64 bg-gradient-to-tr from-[#007ACC]/20 to-black items-center justify-center rounded-xl border border-[#007ACC]/50 hover:border-[#007ACC]/80 text-[#007ACC] py-4 hover:shadow-2xl hover:shadow-[#007ACC]/10 transition-all"
+		class="flex flex-col col-span-6 md:col-span-3 h-48 bg-gradient-to-tr from-[#007ACC]/20 to-black items-center justify-center rounded-xl border border-[#007ACC]/50 hover:border-[#007ACC]/80 text-[#007ACC] py-4 hover:shadow-2xl hover:shadow-[#007ACC]/10 transition-all"
 	>
 		<Icon icon="akar-icons:typescript-fill" class="text-6xl " />
 

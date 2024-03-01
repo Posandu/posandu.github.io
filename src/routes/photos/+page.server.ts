@@ -13,3 +13,5 @@ export const load = async () => {
         })
     }
 }
+
+export const prerender = true;

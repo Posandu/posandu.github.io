@@ -29,28 +29,28 @@
 			description: "Website for Jobsite Sentry. Made with SvelteKit.",
 			roles: ["Developer"],
 			link: "https://jobsitesentry.com/",
-			img: "https://github.com/Posandu/posandu.github.io/assets/76736580/60389cba-4ec1-4ae2-bffb-c35d90fbb1f7",
+			img: "https://github-production-user-asset-6210df.s3.amazonaws.com/76736580/285272273-60389cba-4ec1-4ae2-bffb-c35d90fbb1f7.png",
 		},
 		{
 			name: "Tronic247 Material",
 			description: "Modern CSS framework for building responsive websites.",
 			roles: ["Creator"],
 			link: "https://material.tronic247.com/",
-			img: "https://user-images.githubusercontent.com/76736580/285273186-ce0157a5-28aa-4fb4-aa86-4482f4fe57c0.png"
+			img: "https://user-images.githubusercontent.com/76736580/285273186-ce0157a5-28aa-4fb4-aa86-4482f4fe57c0.png",
 		},
 		{
 			name: "Win11React",
 			description: "Windows 11 recreation in React.",
 			roles: ["Team Member"],
 			link: "https://win11.blueedge.me/",
-			img: "https://user-images.githubusercontent.com/76736580/285272960-348750b6-c12a-4d33-9b96-3d12b461a8c3.png"
+			img: "https://user-images.githubusercontent.com/76736580/285272960-348750b6-c12a-4d33-9b96-3d12b461a8c3.png",
 		},
 		{
 			name: "TerminAI",
 			description: "Generate terminal commands with AI.",
 			roles: ["Creator"],
 			link: "https://terminai.tronic247.com/",
-			img: "https://user-images.githubusercontent.com/76736580/285274633-009e598e-78f4-45f3-bf12-56d9bd502d87.png"
+			img: "https://user-images.githubusercontent.com/76736580/285274633-009e598e-78f4-45f3-bf12-56d9bd502d87.png",
 		},
 		{
 			name: "StackFlex",
@@ -81,7 +81,7 @@
 		>
 			{#if project.img}
 				<img
-					src={project.img}
+					src={"https://img.fotofolio.xyz/?url=" + project.img + "&w=500&h=300"}
 					alt={project.name}
 					class="w-full rounded-xl mb-4 group-hover:opacity-50 transition-all"
 					loading="lazy"

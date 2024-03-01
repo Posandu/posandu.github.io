@@ -46,7 +46,7 @@
 
 			{#if !i?.name?.includes("none")}
 				<div
-					class="absolute opacity-0 group-hover:opacity-100 transition-opacity inset-0 p-1 bg-gradient-to-t from-black/20 drop-shadow to-black/10 flex items-end justify-center text-white"
+					class="absolute opacity-0 group-hover:opacity-100 transition-opacity inset-0 p-1 bg-gradient-to-t from-black/60 drop-shadow to-black/20 flex items-end justify-center text-white"
 				>
 					{i.name?.split(".")[0]}
 				</div>
