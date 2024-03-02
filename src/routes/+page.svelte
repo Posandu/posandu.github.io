@@ -107,9 +107,11 @@
 			</div>
 
 			<div
-				class=" bg-green-600 rounded-xl p-4 relative transition-all group-hover:translate-y-2"
+				class=" bg-green-600 rounded-xl p-4 relative transition-all group-hover:translate-y-2 group-hover:scale-95"
 			>
-				<h2 class="text-white/50 text-2xl mb-2 font-medium">Spotify</h2>
+				<a class="text-white/50 text-2xl mb-2 font-medium" href="/playlist"
+					>Spotify</a
+				>
 
 				{#if spotifyData?.listening_to_spotify}
 					<p class="text-lg font-bold text-white">
@@ -159,7 +161,7 @@
 
 		<p class="my-2">
 			I have experience on creating Enterprise software. I'm also certified on <a
-				class="font-semibold text-red-400 hover:ring-4"
+				class="font-semibold text-red-400 hover:ring-4 rounded-lg ring-red-500/20 transition-all"
 				href="https://www.codingame.com/certification/UuE-yYkOPsUD3F6aCWZ5ZA"
 				>Codingame</a
 			> at solving problems with JavaScipt.
