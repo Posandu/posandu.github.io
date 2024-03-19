@@ -1,7 +1,7 @@
 <script>
 	import { ripple } from "svelte-ripple-action";
 
-	const projects = [
+	const work = [
 		{
 			name: "Tronic247",
 			description: "Tech news, tutorials, and more.",
@@ -69,11 +69,11 @@
 </script>
 
 <svelte:head>
-	<title>Posandu Mapa - Projects I've worked on</title>
+	<title>Posandu Mapa - Work</title>
 </svelte:head>
 
 <div class="grid md:grid-cols-2 mt-28 gap-4 sm:grid-cols-2">
-	{#each projects as project}
+	{#each work as project}
 		<a
 			class="col-span-1 block bg-zinc-900/40 p-6 rounded-lg hover:bg-base-900/50 group transition-all ripple-effect"
 			href={project.link}

@@ -31,8 +31,8 @@
 			link: "/skills",
 		},
 		{
-			name: "Projects",
-			link: "/projects",
+			name: "Work",
+			link: "/work",
 		},
 		{
 			name: "Experience",
