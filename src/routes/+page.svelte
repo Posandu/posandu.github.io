@@ -49,7 +49,7 @@
 </script>
 
 <svelte:head>
-	<title>Posandu Mapa - Student by day, developer by night.</title>
+	<title>Posandu Mapa - Fullstack dev</title>
 </svelte:head>
 
 <div class="grid mt-32 md:mt-48 md:grid-cols-2 grid-cols-1 relative z-10">
@@ -63,9 +63,7 @@
 		</h1>
 
 		<h2 class="text-2xl opacity-40">
-			{Math.round(
-				(new Date().getTime() - birthDate.getTime()) / 1000 / 60 / 60 / 24 / 365
-			)} year old dev and student
+			Fullstack dev
 		</h2>
 
 		<a
