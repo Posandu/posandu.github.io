@@ -46,6 +46,10 @@
 			name: "Photography",
 			link: "/photos",
 		},
+		{
+			name: "Blog",
+			link: "https://www.tronic247.com",
+		},
 	];
 </script>
 

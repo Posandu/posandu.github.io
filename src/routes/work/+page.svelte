@@ -1,7 +1,7 @@
 <script>
 	import { ripple } from "svelte-ripple-action";
 
-	const work = [
+	const MAJOR = [
 		{
 			name: "Tronic247",
 			description: "Tech news, tutorials, and more.",
@@ -23,7 +23,6 @@
 			link: "https://win11-svelte.vercel.app/",
 			img: "https://user-images.githubusercontent.com/76736580/285272771-2272758c-bac4-48e9-bbe0-dfbd68e23d3a.png",
 		},
-
 		{
 			name: "Jobsite Sentry Website",
 			description: "Website for Jobsite Sentry. Made with SvelteKit.",
@@ -49,7 +48,6 @@
 			name: "TerminAI",
 			description: "Generate terminal commands with AI.",
 			roles: ["Creator"],
-			link: "https://terminai.tronic247.com/",
 			img: "https://user-images.githubusercontent.com/76736580/285274633-009e598e-78f4-45f3-bf12-56d9bd502d87.png",
 		},
 		{
@@ -57,13 +55,35 @@
 			description:
 				"Modern copy-pasting alternative for developers. Won a Hackathon hosted by Hashnode. Discontinued.",
 			roles: ["Creator"],
-			link: "https://stackflex.tronic247.com/",
 		},
 		{
 			name: "Gradienmood",
 			description: "Generate beautiful gradients. Discontinued.",
 			roles: ["Creator"],
-			link: "https://gradienmood.posandu.me/",
+		},
+	];
+
+	const SMALL = [
+		{
+			name: "Pastebin",
+			description: "Simple paste bin - powered by SvelteKit & IPFS.",
+			link: "https://pb.posandu.com/",
+		},
+		{
+			name: "Svelte File Explorer",
+			description: "A file explorer written in Svelte.",
+			link: "https://files.posandu.com/",
+		},
+		{
+			name: "Uno",
+			description: "Simple UNO game inspired by pizz.uno.",
+			link: "https://uno-red.vercel.app/",
+		},
+		{
+			name: "Music Player UI",
+			description:
+				"Simple music player UI made with Svelte to improve my design skills.",
+			link: "https://mplayer-gamma.vercel.app/",
 		},
 	];
 </script>
@@ -72,8 +92,20 @@
 	<title>Posandu Mapa - Work</title>
 </svelte:head>
 
-<div class="grid md:grid-cols-2 mt-28 gap-4 sm:grid-cols-2">
-	{#each work as project}
+<p class="mt-32">
+	Here are some of the projects I've worked on. Some of them are personal
+	projects, works for clients, or team projects. Feel free to check them out! 😄
+</p>
+
+<h1 class="text-2xl font-semibold mt-8">Major Projects</h1>
+
+<p class="mt-4">
+	These are the projects that I've worked on the most. I've either created them
+	from scratch or contributed a lot to them.
+</p>
+
+<div class="grid mt-4 md:grid-cols-2 gap-4 sm:grid-cols-2">
+	{#each MAJOR as project}
 		<a
 			class="col-span-1 block bg-zinc-900/40 p-6 rounded-lg hover:bg-base-900/50 group transition-all ripple-effect"
 			href={project.link}
@@ -100,6 +132,26 @@
 			{/each}
 
 			<br />
+		</a>
+	{/each}
+</div>
+
+<h1 class="text-2xl font-semibold mt-8">Small Projects</h1>
+
+<p class="mt-4">
+	These are the projects that I've worked just for the sake of learning or for
+	fun.
+</p>
+
+<div class="grid mt-4 md:grid-cols-2 gap-4 sm:grid-cols-2">
+	{#each SMALL as project}
+		<a
+			class="col-span-1 block bg-zinc-900/40 p-6 rounded-lg hover:bg-base-900/50 group transition-all ripple-effect"
+			href={project.link}
+			use:ripple
+		>
+			<h1 class="text-lg font-semibold">{project.name}</h1>
+			<p class="my-2 text-sm">{project.description}</p>
 		</a>
 	{/each}
 </div>
