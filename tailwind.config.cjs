@@ -13,7 +13,7 @@ module.exports = {
 		themes: [
 			{
 				primary: {
-					...require("daisyui/src/theming/themes")["[data-theme=black]"],
+					...require("daisyui/src/theming/themes").sunset,
 				},
 			},
 		],

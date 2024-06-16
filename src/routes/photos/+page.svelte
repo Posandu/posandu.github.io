@@ -24,7 +24,7 @@
 	});
 </script>
 
-<p class="mb-2 mt-36 text-sm text-gray-500">
+<p class="mb-2 text-sm text-gray-500">
 	Click on the images to view them in full size.
 </p>
 

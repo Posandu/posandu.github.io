@@ -76,7 +76,7 @@
 	<title>Posandu Mapa - Guestbook</title>
 </svelte:head>
 
-<p class="my-2 mt-36">Leave a message for me!</p>
+<p>Leave a message for me!</p>
 
 {#if !signedIn}
 	<button

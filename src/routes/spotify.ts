@@ -65,7 +65,7 @@ const API_URL = "https://api.lanyard.rest/v1/users/961161387101536296";
 export async function getSpotifyData() {
     //@ts-ignore
     if (typeof window === "undefined") return { data: null };
-    const response = await fetch(API_URL + "?_____urmum_____=" + Math.random());
+    const response = await fetch(API_URL + "?__cacheIgnore=" + Math.random());
     const data: UserData = await response.json();
 
     return data;
