@@ -147,10 +147,6 @@
 	];
 </script>
 
-<svelte:head>
-	<title>Posandu Mapa - Work</title>
-</svelte:head>
-
 <h1 class="text-lg font-semibold mt-8 mb-6">Major Projects</h1>
 
 <div class="grid mt-4 md:grid-cols-3 gap-8 sm:grid-cols-2">

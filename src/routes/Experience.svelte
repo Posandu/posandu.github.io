@@ -36,10 +36,6 @@
 	];
 </script>
 
-<svelte:head>
-	<title>Posandu Mapa - My Experience</title>
-</svelte:head>
-
 {#each details as detail}
 	<div class="flex items-center border rounded-xl p-4 border-base-300/60 bg-base-200 backdrop-blur-md mb-4">
 		<Icon icon={detail.icon} class="text-2xl mr-1" />
