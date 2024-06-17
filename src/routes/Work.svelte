@@ -210,7 +210,7 @@
 			class="flex items-center gap-2 text-sm hover:opacity-80"
 			target="_blank"
 		>
-			<h1>{project.name}</h1>
+			<h1 class="min-w-max">{project.name}</h1>
 			&mdash;
 			<p class="text-neutral-content/60">{project.description}</p>
 		</a>

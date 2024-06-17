@@ -17,7 +17,7 @@
 	];
 </script>
 
-<div class="col-span-1 grid grid-cols-4 flex-col gap-4">
+<div class="col-span-1 grid md:grid-cols-3 lg:grid-cols-4 flex-col gap-4">
 	{#each dataArray as { name, icon }}
 		<div class="flex gap-4 items-center bg-base-200 rounded-lg px-4 py-4 hover:bg-base-300 transition-all">
 			<Icon {icon} class="w-8 h-8" />
